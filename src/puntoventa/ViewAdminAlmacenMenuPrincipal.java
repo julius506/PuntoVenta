@@ -180,7 +180,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
-        new ViewAdminAlmacenFactura().setVisible(true);
+        new ViewCajeroFactura().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
