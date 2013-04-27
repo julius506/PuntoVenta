@@ -99,6 +99,11 @@ public class ViewAdminAlmacenInventario extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(6).setResizable(false);
 
         ButtonAgregarProductoNuevo.setText("Agregar Producto Nuevo");
+        ButtonAgregarProductoNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarProductoNuevoActionPerformed(evt);
+            }
+        });
 
         ButtonSolicitarProducto.setText("Solicitar Producto");
 
@@ -174,6 +179,10 @@ public class ViewAdminAlmacenInventario extends javax.swing.JFrame {
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
         new ViewCajeroBuscarProducto().setVisible(true);
     }//GEN-LAST:event_ButtonBuscarActionPerformed
+
+    private void ButtonAgregarProductoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarProductoNuevoActionPerformed
+        new ViewAgregarProducto().setVisible(true);
+    }//GEN-LAST:event_ButtonAgregarProductoNuevoActionPerformed
 
     /**
      * @param args the command line arguments
