@@ -113,12 +113,12 @@ public class LogIn extends javax.swing.JFrame {
                 new ViewCajeroMenuPrincipal().setVisible(true);
                 this.dispose();
                 break;
-//            case "Sucursal":
-//                new ViewAdminSucursalMenuPrincipal().SetVisible(true);
-//                break;
-//            case "Almacen":
-//                new ViewAdminAlmacenMenuPrincipal().SetVisible(true);
-//                break;
+            case "Sucursal":
+                new ViewAdminSucursalMenuPrincipal().setVisible(true);
+                break;
+            case "Almacen":
+                new ViewAdminAlmacenMenuPrincipal().setVisible(true);
+                break;
             default:
                 break;
         }

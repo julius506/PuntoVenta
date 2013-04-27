@@ -38,7 +38,7 @@ public class MainClass {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LogIn().setVisible(true);
-                new ViewAdminSucursalMenuPrincipal().setVisible(true);
+                //new ViewAdminSucursalMenuPrincipal().setVisible(true);
             }
         });
     }
