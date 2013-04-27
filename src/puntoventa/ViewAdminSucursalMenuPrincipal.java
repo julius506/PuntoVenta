@@ -133,7 +133,7 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
-        new ViewCajeroFactura().setVisible(true);
+        new ViewAdminSucursalFactura().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
