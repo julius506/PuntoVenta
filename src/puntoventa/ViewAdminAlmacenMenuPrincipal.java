@@ -8,12 +8,12 @@ package puntoventa;
  *
  * @author Julian
  */
-public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
+public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewCajeroMenuPrincipal
      */
-    public ViewAdminSucursalMenuPrincipal() {
+    public ViewAdminAlmacenMenuPrincipal() {
         initComponents();
     }
 
