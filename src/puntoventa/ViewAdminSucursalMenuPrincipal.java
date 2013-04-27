@@ -8,10 +8,10 @@ package puntoventa;
  *
  * @author Julian
  */
-public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
+public class ViewAdminSucursalMenuPrincipal extends ViewCajeroMenuPrincipal {
 
     /**
-     * Creates new form ViewCajeroMenuPrincipal
+     * Creates new form ViewAdminSucursalMenuPrincipal
      */
     public ViewAdminSucursalMenuPrincipal() {
         initComponents();
@@ -26,163 +26,23 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        LabelUsuario = new javax.swing.JLabel();
-        LabelNombreUsuario = new javax.swing.JLabel();
-        LabelCedula = new javax.swing.JLabel();
-        LabelNumCedula = new javax.swing.JLabel();
-        ButtonLogOut = new javax.swing.JButton();
-        ButtonFacturaNueva = new javax.swing.JButton();
-        ButtonBuscarProducto = new javax.swing.JButton();
-        ButtonInventario = new javax.swing.JButton();
-        ButtonClientesEspeciales = new javax.swing.JButton();
-        ButtonSolicitarProductos = new javax.swing.JButton();
-        ButtonEmpleados = new javax.swing.JButton();
-        ButtonEstadisticas = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        LabelUsuario.setText("Usuario:");
-
-        LabelNombreUsuario.setText("Manuel Zuniga");
-
-        LabelCedula.setText("Cedula");
-
-        LabelNumCedula.setText("1-1365-0901");
-
-        ButtonLogOut.setText("Log Out");
-        ButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonLogOutActionPerformed(evt);
-            }
-        });
-
-        ButtonFacturaNueva.setText("Factura Nueva");
-        ButtonFacturaNueva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonFacturaNuevaActionPerformed(evt);
-            }
-        });
-
-        ButtonBuscarProducto.setText("Buscar Producto");
-        ButtonBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonBuscarProductoActionPerformed(evt);
-            }
-        });
-
-        ButtonInventario.setText("Inventario");
-
-        ButtonClientesEspeciales.setText("Clientes Especiales");
-
-        ButtonSolicitarProductos.setText("Solicitar Productos");
-
-        ButtonEmpleados.setText("Empleados");
-
-        ButtonEstadisticas.setText("Estadisticas");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ButtonLogOut))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelUsuario)
-                            .addComponent(LabelCedula))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelNumCedula)
-                            .addComponent(LabelNombreUsuario)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonClientesEspeciales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonSolicitarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(ButtonLogOut)
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelUsuario)
-                    .addComponent(LabelNombreUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelCedula)
-                    .addComponent(LabelNumCedula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonFacturaNueva)
-                    .addComponent(ButtonBuscarProducto))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonInventario)
-                    .addComponent(ButtonSolicitarProductos))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonClientesEspeciales)
-                    .addComponent(ButtonEmpleados))
-                .addGap(18, 18, 18)
-                .addComponent(ButtonEstadisticas)
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
-        new LogIn().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_ButtonLogOutActionPerformed
-
-    private void ButtonBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarProductoActionPerformed
-        new ViewCajeroBuscarProducto().setVisible(true);
-    }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
-
-    private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
-        new ViewCajeroFactura().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
-
-   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonBuscarProducto;
-    private javax.swing.JButton ButtonClientesEspeciales;
-    private javax.swing.JButton ButtonEmpleados;
-    private javax.swing.JButton ButtonEstadisticas;
-    private javax.swing.JButton ButtonFacturaNueva;
-    private javax.swing.JButton ButtonInventario;
-    private javax.swing.JButton ButtonLogOut;
-    private javax.swing.JButton ButtonSolicitarProductos;
-    private javax.swing.JLabel LabelCedula;
-    private javax.swing.JLabel LabelNombreUsuario;
-    private javax.swing.JLabel LabelNumCedula;
-    private javax.swing.JLabel LabelUsuario;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
