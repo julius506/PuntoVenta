@@ -34,6 +34,7 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         ButtonLogOut = new javax.swing.JButton();
         ButtonFacturaNueva = new javax.swing.JButton();
         ButtonBuscarProducto = new javax.swing.JButton();
+        ButtonInventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,13 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonInventario.setText("Inventario");
+        ButtonInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonInventarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,17 +85,19 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ButtonFacturaNueva)
-                        .addGap(71, 71, 71)
-                        .addComponent(ButtonBuscarProducto))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelUsuario)
                             .addComponent(LabelCedula))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelNumCedula)
-                            .addComponent(LabelNombreUsuario))))
+                            .addComponent(LabelNombreUsuario)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addComponent(ButtonBuscarProducto)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -106,7 +116,9 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonFacturaNueva)
                     .addComponent(ButtonBuscarProducto))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonInventario)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,10 +149,16 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
+    private void ButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInventarioActionPerformed
+        new ViewAdminSucursalInventario().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ButtonInventarioActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
     private javax.swing.JButton ButtonFacturaNueva;
+    private javax.swing.JButton ButtonInventario;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JLabel LabelCedula;
     private javax.swing.JLabel LabelNombreUsuario;
