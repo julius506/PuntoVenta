@@ -358,7 +358,7 @@ public class ViewAdminSucursalFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     private void ButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarActionPerformed
-        new ViewCajeroMenuPrincipal().setVisible(true);
+        new ViewAdminSucursalMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonRegresarActionPerformed
 
