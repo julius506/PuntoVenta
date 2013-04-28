@@ -129,7 +129,7 @@ public class ViewAdminSucursalFactura extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(2).setResizable(false);
         jTable1.getColumnModel().getColumn(3).setResizable(false);
 
-        ComboBoxDivisa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxDivisa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dolares", "Euros", "Cordobas" }));
         ComboBoxDivisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxDivisaActionPerformed(evt);
@@ -251,7 +251,12 @@ public class ViewAdminSucursalFactura extends javax.swing.JFrame {
             }
         });
 
-        ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fisico", "Juridico", "Recidente", "Extranjero" }));
+        ComboBoxTipoCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxTipoCedulaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
         PanelMain.setLayout(PanelMainLayout);
@@ -319,7 +324,7 @@ public class ViewAdminSucursalFactura extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap()
                 .addComponent(PanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -361,6 +366,10 @@ public class ViewAdminSucursalFactura extends javax.swing.JFrame {
         new ViewAdminSucursalMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonRegresarActionPerformed
+
+    private void ComboBoxTipoCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxTipoCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxTipoCedulaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

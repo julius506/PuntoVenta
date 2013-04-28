@@ -129,7 +129,7 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(2).setResizable(false);
         jTable1.getColumnModel().getColumn(3).setResizable(false);
 
-        ComboBoxDivisa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxDivisa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dolares", "Euros", "Cordobas" }));
         ComboBoxDivisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxDivisaActionPerformed(evt);
@@ -251,7 +251,7 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
             }
         });
 
-        ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fisico", "Juridico", "Residente", "Extranjero" }));
 
         javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
         PanelMain.setLayout(PanelMainLayout);
