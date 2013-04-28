@@ -256,6 +256,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegresarActionPerformed
 
     private void ButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonComprarActionPerformed
+        new ViewAdminAlmacenMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonComprarActionPerformed
 

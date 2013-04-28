@@ -244,6 +244,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegresarActionPerformed
 
     private void ButtonEnviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnviarSolicitudActionPerformed
+        new ViewAdminSucursalMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonEnviarSolicitudActionPerformed
 
