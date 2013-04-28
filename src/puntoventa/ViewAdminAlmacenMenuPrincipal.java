@@ -84,8 +84,18 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         });
 
         ButtonSolicitarProductos.setText("Solicitar Productos");
+        ButtonSolicitarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSolicitarProductosActionPerformed(evt);
+            }
+        });
 
         ButtonComprar.setText("Comprar");
+        ButtonComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonComprarActionPerformed(evt);
+            }
+        });
 
         ButtonProveedores.setText("Proveedores");
 
@@ -144,9 +154,9 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(LabelCedula)
                     .addComponent(LabelNumCedula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonFacturaNueva)
-                    .addComponent(ButtonBuscarProducto))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonInventario)
@@ -194,6 +204,16 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         new ViewAdminAlmacenInventario().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonInventarioActionPerformed
+
+    private void ButtonSolicitarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductosActionPerformed
+        new ViewAdminAlmacenSolicitarProductos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
+
+    private void ButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonComprarActionPerformed
+        new ViewAdminAlmacenComprarProductos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ButtonComprarActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

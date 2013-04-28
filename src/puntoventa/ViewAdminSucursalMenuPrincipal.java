@@ -79,6 +79,11 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         });
 
         ButtonSolicitarProductos.setText("Solicitar Productos");
+        ButtonSolicitarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSolicitarProductosActionPerformed(evt);
+            }
+        });
 
         ButtonClientesEspeciales.setText("Clientes Especiales");
 
@@ -134,9 +139,9 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(ButtonFacturaNueva)
                     .addComponent(ButtonBuscarProducto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonInventario)
-                    .addComponent(ButtonSolicitarProductos))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButtonSolicitarProductos)
+                    .addComponent(ButtonInventario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonClientesEspeciales)
@@ -178,6 +183,11 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         new ViewAdminSucursalInventario().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonInventarioActionPerformed
+
+    private void ButtonSolicitarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductosActionPerformed
+        new ViewAdminSucursalSolicitarProductos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
