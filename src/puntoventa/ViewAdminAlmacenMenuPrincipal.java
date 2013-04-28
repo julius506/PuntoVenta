@@ -98,10 +98,25 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         });
 
         ButtonProveedores.setText("Proveedores");
+        ButtonProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonProveedoresActionPerformed(evt);
+            }
+        });
 
         ButtonEmpleados.setText("Empleados");
+        ButtonEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEmpleadosActionPerformed(evt);
+            }
+        });
 
         ButtonClientesEspeciales.setText("Clientes Especiales");
+        ButtonClientesEspeciales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonClientesEspecialesActionPerformed(evt);
+            }
+        });
 
         ButtonEstadisticas.setText("Estadisticas");
 
@@ -214,6 +229,18 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         new ViewAdminAlmacenComprarProductos().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonComprarActionPerformed
+
+    private void ButtonClientesEspecialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClientesEspecialesActionPerformed
+        new ViewClientesEspeciales().setVisible(true);
+    }//GEN-LAST:event_ButtonClientesEspecialesActionPerformed
+
+    private void ButtonEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEmpleadosActionPerformed
+        new ViewEmpleados().setVisible(true);
+    }//GEN-LAST:event_ButtonEmpleadosActionPerformed
+
+    private void ButtonProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProveedoresActionPerformed
+        new ViewProveedores().setVisible(true);
+    }//GEN-LAST:event_ButtonProveedoresActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

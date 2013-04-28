@@ -86,8 +86,18 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         });
 
         ButtonClientesEspeciales.setText("Clientes Especiales");
+        ButtonClientesEspeciales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonClientesEspecialesActionPerformed(evt);
+            }
+        });
 
         ButtonEmpleados.setText("Empleados");
+        ButtonEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEmpleadosActionPerformed(evt);
+            }
+        });
 
         ButtonEstadisticas.setText("Estadisticas");
 
@@ -188,6 +198,14 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         new ViewAdminSucursalSolicitarProductos().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
+
+    private void ButtonEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEmpleadosActionPerformed
+        new ViewEmpleados().setVisible(true);
+    }//GEN-LAST:event_ButtonEmpleadosActionPerformed
+
+    private void ButtonClientesEspecialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClientesEspecialesActionPerformed
+        new ViewClientesEspeciales().setVisible(true);
+    }//GEN-LAST:event_ButtonClientesEspecialesActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
