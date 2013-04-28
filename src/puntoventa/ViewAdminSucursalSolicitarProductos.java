@@ -63,23 +63,23 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad", "Proveedor"
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -92,7 +92,6 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         });
         jTable1.getTableHeader().setReorderingAllowed(false);
         ScrollPaneBuscar.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(7).setHeaderValue("Proveedor");
 
         LabelCodBarras1.setText("Codigo Barras");
 
