@@ -26,6 +26,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         LabelUsuario = new javax.swing.JLabel();
         LabelNombreUsuario = new javax.swing.JLabel();
@@ -35,6 +36,14 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         ButtonFacturaNueva = new javax.swing.JButton();
         ButtonBuscarProducto = new javax.swing.JButton();
         ButtonInventario = new javax.swing.JButton();
+        ButtonSolicitarProductos = new javax.swing.JButton();
+        ButtonComprar = new javax.swing.JButton();
+        ButtonProveedores = new javax.swing.JButton();
+        ButtonEmpleados = new javax.swing.JButton();
+        ButtonClientesEspeciales = new javax.swing.JButton();
+        ButtonEstadisticas = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +83,18 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonSolicitarProductos.setText("Solicitar Productos");
+
+        ButtonComprar.setText("Comprar");
+
+        ButtonProveedores.setText("Proveedores");
+
+        ButtonEmpleados.setText("Empleados");
+
+        ButtonClientesEspeciales.setText("Clientes Especiales");
+
+        ButtonEstadisticas.setText("Estadisticas");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,14 +112,24 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelNumCedula)
-                            .addComponent(LabelNombreUsuario)))
+                            .addComponent(LabelNombreUsuario))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71)
-                        .addComponent(ButtonBuscarProducto)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonClientesEspeciales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonSolicitarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +148,18 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(ButtonFacturaNueva)
                     .addComponent(ButtonBuscarProducto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonInventario)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonInventario)
+                    .addComponent(ButtonSolicitarProductos)
+                    .addComponent(ButtonComprar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonProveedores)
+                    .addComponent(ButtonEmpleados)
+                    .addComponent(ButtonClientesEspeciales))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonEstadisticas)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,13 +198,20 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
+    private javax.swing.JButton ButtonClientesEspeciales;
+    private javax.swing.JButton ButtonComprar;
+    private javax.swing.JButton ButtonEmpleados;
+    private javax.swing.JButton ButtonEstadisticas;
     private javax.swing.JButton ButtonFacturaNueva;
     private javax.swing.JButton ButtonInventario;
     private javax.swing.JButton ButtonLogOut;
+    private javax.swing.JButton ButtonProveedores;
+    private javax.swing.JButton ButtonSolicitarProductos;
     private javax.swing.JLabel LabelCedula;
     private javax.swing.JLabel LabelNombreUsuario;
     private javax.swing.JLabel LabelNumCedula;
     private javax.swing.JLabel LabelUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

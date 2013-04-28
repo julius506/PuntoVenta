@@ -35,6 +35,10 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         ButtonFacturaNueva = new javax.swing.JButton();
         ButtonBuscarProducto = new javax.swing.JButton();
         ButtonInventario = new javax.swing.JButton();
+        ButtonSolicitarProductos = new javax.swing.JButton();
+        ButtonClientesEspeciales = new javax.swing.JButton();
+        ButtonEmpleados = new javax.swing.JButton();
+        ButtonEstadisticas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +78,14 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonSolicitarProductos.setText("Solicitar Productos");
+
+        ButtonClientesEspeciales.setText("Clientes Especiales");
+
+        ButtonEmpleados.setText("Empleados");
+
+        ButtonEstadisticas.setText("Estadisticas");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,10 +107,15 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71)
-                        .addComponent(ButtonBuscarProducto)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonClientesEspeciales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonSolicitarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonEmpleados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,8 +134,16 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(ButtonFacturaNueva)
                     .addComponent(ButtonBuscarProducto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonInventario)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonInventario)
+                    .addComponent(ButtonSolicitarProductos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonClientesEspeciales)
+                    .addComponent(ButtonEmpleados))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButtonEstadisticas)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,9 +182,13 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
+    private javax.swing.JButton ButtonClientesEspeciales;
+    private javax.swing.JButton ButtonEmpleados;
+    private javax.swing.JButton ButtonEstadisticas;
     private javax.swing.JButton ButtonFacturaNueva;
     private javax.swing.JButton ButtonInventario;
     private javax.swing.JButton ButtonLogOut;
+    private javax.swing.JButton ButtonSolicitarProductos;
     private javax.swing.JLabel LabelCedula;
     private javax.swing.JLabel LabelNombreUsuario;
     private javax.swing.JLabel LabelNumCedula;
