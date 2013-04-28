@@ -8,12 +8,12 @@ package puntoventa;
  *
  * @author Julian
  */
-public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
+public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewAdminSucursalSolicitarProductos
      */
-    public ViewAdminSucursalSolicitarProductos() {
+    public ViewAdminAlmacenSolicitarProductos() {
         initComponents();
     }
 
@@ -36,6 +36,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         ButtonBuscar = new javax.swing.JButton();
         ScrollPaneBuscar = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        ComboBoxProveedor = new javax.swing.JComboBox();
         LabelCodBarras1 = new javax.swing.JLabel();
         TextFieldCodBarras1 = new javax.swing.JTextField();
         LabelCantidad = new javax.swing.JLabel();
@@ -43,6 +44,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         ButtonAgregar = new javax.swing.JButton();
         ScrollPaneBuscar1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        LabelProveedor = new javax.swing.JLabel();
         ButtonEnviarSolicitud = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,48 +64,6 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad", "Proveedor"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        ScrollPaneBuscar.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(7).setHeaderValue("Proveedor");
-
-        LabelCodBarras1.setText("Codigo Barras");
-
-        LabelCantidad.setText("Cantidad");
-
-        TextFieldCantidad.setText("1");
-
-        ButtonAgregar.setText("Agregar");
-
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -132,8 +92,53 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        ScrollPaneBuscar.setViewportView(jTable1);
+
+        ComboBoxProveedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        LabelCodBarras1.setText("Codigo Barras");
+
+        LabelCantidad.setText("Cantidad");
+
+        TextFieldCantidad.setText("1");
+
+        ButtonAgregar.setText("Agregar");
+
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad", "Proveedor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.getTableHeader().setReorderingAllowed(false);
         ScrollPaneBuscar1.setViewportView(jTable2);
+
+        LabelProveedor.setText("Proveedor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,14 +156,16 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelCodBarras)
-                                    .addComponent(LabelDescripcion))
+                                    .addComponent(LabelDescripcion)
+                                    .addComponent(LabelProveedor))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(TextFieldCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ComboBoxProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(LabelCodBarras1)
                                 .addGap(18, 18, 18)
@@ -186,7 +193,11 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
                     .addComponent(LabelDescripcion)
                     .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonBuscar))
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelProveedor))
+                .addGap(18, 18, 18)
                 .addComponent(ScrollPaneBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -240,7 +251,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarActionPerformed
-        new ViewAdminSucursalMenuPrincipal().setVisible(true);
+        new ViewAdminAlmacenMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonRegresarActionPerformed
 
@@ -257,10 +268,12 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonEnviarSolicitud;
     private javax.swing.JButton ButtonRegresar;
+    private javax.swing.JComboBox ComboBoxProveedor;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelCodBarras1;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JLabel LabelProveedor;
     private javax.swing.JScrollPane ScrollPaneBuscar;
     private javax.swing.JScrollPane ScrollPaneBuscar1;
     private javax.swing.JTextField TextFieldCantidad;
