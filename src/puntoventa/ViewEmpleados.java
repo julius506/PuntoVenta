@@ -86,6 +86,11 @@ public class ViewEmpleados extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TableSearchResults);
 
         ButtonAgregarNuevo.setText("Agregar Nuevo");
+        ButtonAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,6 +155,10 @@ public class ViewEmpleados extends javax.swing.JFrame {
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_ButtonCancelarActionPerformed
+
+    private void ButtonAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarNuevoActionPerformed
+        new ViewAgregarEmpleado().setVisible(true);
+    }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
     /**
      * @param args the command line arguments
