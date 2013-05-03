@@ -36,6 +36,7 @@ public class ViewProveedores extends javax.swing.JFrame {
         ButtonAgregarNuevo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        ButtonAgregarDireccion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,8 @@ public class ViewProveedores extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
+        ButtonAgregarDireccion.setText("Agregar Direccion a Proveedor");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -108,9 +111,11 @@ public class ViewProveedores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ButtonBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ButtonAgregarNuevo))
+                        .addComponent(ButtonAgregarNuevo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ButtonAgregarDireccion))
                     .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(796, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -130,7 +135,8 @@ public class ViewProveedores extends javax.swing.JFrame {
                     .addComponent(LabelDescripcion)
                     .addComponent(TextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonBuscar)
-                    .addComponent(ButtonAgregarNuevo))
+                    .addComponent(ButtonAgregarNuevo)
+                    .addComponent(ButtonAgregarDireccion))
                 .addContainerGap(222, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,6 +202,7 @@ public class ViewProveedores extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonAgregarDireccion;
     private javax.swing.JButton ButtonAgregarNuevo;
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
