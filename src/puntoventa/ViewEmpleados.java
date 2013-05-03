@@ -55,23 +55,23 @@ public class ViewEmpleados extends javax.swing.JFrame {
         TableSearchResults.setAutoCreateRowSorter(true);
         TableSearchResults.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Cedula", "Puesto", "Comision", "Telefonos", "Direccion", "Email"
+                "Cedula", "Tipo Cedula", "Nombre", "Puesto", "Sucursal", "Comision", "Celular", "Telefono Casa", "Telefono Oficina", "Direccion Exacta", "Email", "Nivel Academico"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -84,6 +84,18 @@ public class ViewEmpleados extends javax.swing.JFrame {
         });
         TableSearchResults.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableSearchResults);
+        TableSearchResults.getColumnModel().getColumn(0).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(1).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(2).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(3).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(4).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(5).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(6).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(7).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(8).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(9).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(10).setResizable(false);
+        TableSearchResults.getColumnModel().getColumn(11).setResizable(false);
 
         ButtonAgregarNuevo.setText("Agregar Nuevo");
         ButtonAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +114,7 @@ public class ViewEmpleados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelNombre)
@@ -142,7 +154,7 @@ public class ViewEmpleados extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
