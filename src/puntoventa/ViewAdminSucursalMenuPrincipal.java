@@ -100,6 +100,11 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         });
 
         ButtonEstadisticas.setText("Estadisticas");
+        ButtonEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEstadisticasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,6 +211,10 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     private void ButtonClientesEspecialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClientesEspecialesActionPerformed
         new ViewClientesEspeciales().setVisible(true);
     }//GEN-LAST:event_ButtonClientesEspecialesActionPerformed
+
+    private void ButtonEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEstadisticasActionPerformed
+        new ViewEstadisticas().setVisible(true);
+    }//GEN-LAST:event_ButtonEstadisticasActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
