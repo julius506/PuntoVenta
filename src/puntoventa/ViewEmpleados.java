@@ -84,18 +84,6 @@ public class ViewEmpleados extends javax.swing.JFrame {
         });
         TableSearchResults.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableSearchResults);
-        TableSearchResults.getColumnModel().getColumn(0).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(1).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(2).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(3).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(4).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(5).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(6).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(7).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(8).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(9).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(10).setResizable(false);
-        TableSearchResults.getColumnModel().getColumn(11).setResizable(false);
 
         ButtonAgregarNuevo.setText("Agregar Nuevo");
         ButtonAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
