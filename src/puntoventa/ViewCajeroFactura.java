@@ -15,6 +15,11 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
      */
     public ViewCajeroFactura() {
         initComponents();
+        LabelSubtotal.setText("0");
+        LabelValueTotal.setText("0");
+        LabelValueImpuesto.setText("0");
+        LabelValueDescuento.setText("0");
+        LabelValueTotalDivisa.setText("0");
     }
 
     /**
@@ -34,15 +39,15 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
         LabelImpuestos = new javax.swing.JLabel();
         LabelTotal = new javax.swing.JLabel();
         TextFieldCodigoDescuento = new javax.swing.JTextField();
-        LabelPorcentajeImpuesto = new javax.swing.JLabel();
-        LabelPorcentajeImpuesto1 = new javax.swing.JLabel();
-        LabelPorcentajeImpuesto2 = new javax.swing.JLabel();
-        LabelPorcentajeImpuesto3 = new javax.swing.JLabel();
+        LabelValueDescuento = new javax.swing.JLabel();
+        LabelValueSubtotal = new javax.swing.JLabel();
+        LabelValueImpuesto = new javax.swing.JLabel();
+        LabelValueTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         ComboBoxDivisa = new javax.swing.JComboBox();
         LabelDivisa = new javax.swing.JLabel();
-        LabelTotalDivisa = new javax.swing.JLabel();
+        LabelValueTotalDivisa = new javax.swing.JLabel();
         LabelCodBarras = new javax.swing.JLabel();
         LabelNomCliente = new javax.swing.JLabel();
         LabelCedulaCliente = new javax.swing.JLabel();
@@ -84,13 +89,13 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
             }
         });
 
-        LabelPorcentajeImpuesto.setText("LabelDescuento");
+        LabelValueDescuento.setText("0");
 
-        LabelPorcentajeImpuesto1.setText("LabelSubtotal");
+        LabelValueSubtotal.setText("0");
 
-        LabelPorcentajeImpuesto2.setText("LabelImpuestos");
+        LabelValueImpuesto.setText("13");
 
-        LabelPorcentajeImpuesto3.setText("LabelTotal");
+        LabelValueTotal.setText("0");
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,7 +143,7 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
 
         LabelDivisa.setText("Total en otra divisa");
 
-        LabelTotalDivisa.setText("LabelTotalDivisa");
+        LabelValueTotalDivisa.setText("0");
 
         javax.swing.GroupLayout PanelTableLayout = new javax.swing.GroupLayout(PanelTable);
         PanelTable.setLayout(PanelTableLayout);
@@ -162,13 +167,13 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
                         .addGap(106, 106, 106)))
                 .addComponent(PanelCalculosFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(93, 93, 93)
-                .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelPorcentajeImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPorcentajeImpuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPorcentajeImpuesto2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPorcentajeImpuesto3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelTotalDivisa))
-                .addGap(48, 48, 48))
+                .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LabelValueDescuento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelValueSubtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelValueImpuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(LabelValueTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelValueTotalDivisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         PanelTableLayout.setVerticalGroup(
@@ -191,18 +196,18 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
                                 .addComponent(LabelTotal))
                             .addGroup(PanelTableLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(LabelPorcentajeImpuesto)
+                                .addComponent(LabelValueDescuento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LabelPorcentajeImpuesto1)
+                                .addComponent(LabelValueSubtotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LabelPorcentajeImpuesto2)
+                                .addComponent(LabelValueImpuesto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LabelPorcentajeImpuesto3)))
+                                .addComponent(LabelValueTotal)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(ComboBoxDivisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LabelTotalDivisa))
+                                .addComponent(LabelValueTotalDivisa))
                             .addComponent(LabelDivisa)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTableLayout.createSequentialGroup()
                         .addComponent(PanelCalculosFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -321,7 +326,7 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(PanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,13 +384,13 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
     private javax.swing.JLabel LabelDivisa;
     private javax.swing.JLabel LabelImpuestos;
     private javax.swing.JLabel LabelNomCliente;
-    private javax.swing.JLabel LabelPorcentajeImpuesto;
-    private javax.swing.JLabel LabelPorcentajeImpuesto1;
-    private javax.swing.JLabel LabelPorcentajeImpuesto2;
-    private javax.swing.JLabel LabelPorcentajeImpuesto3;
     private javax.swing.JLabel LabelSubtotal;
     private javax.swing.JLabel LabelTotal;
-    private javax.swing.JLabel LabelTotalDivisa;
+    private javax.swing.JLabel LabelValueDescuento;
+    private javax.swing.JLabel LabelValueImpuesto;
+    private javax.swing.JLabel LabelValueSubtotal;
+    private javax.swing.JLabel LabelValueTotal;
+    private javax.swing.JLabel LabelValueTotalDivisa;
     private javax.swing.JPanel PanelCalculosFactura;
     private javax.swing.JPanel PanelMain;
     private javax.swing.JPanel PanelTable;
