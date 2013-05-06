@@ -201,7 +201,6 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
 
     private void ButtonSolicitarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductosActionPerformed
         new ViewAdminSucursalSolicitarProductos().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
 
     private void ButtonEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEmpleadosActionPerformed

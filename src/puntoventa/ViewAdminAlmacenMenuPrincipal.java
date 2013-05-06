@@ -227,12 +227,12 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
 
     private void ButtonSolicitarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductosActionPerformed
         new ViewAdminAlmacenSolicitarProductos().setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
 
     private void ButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonComprarActionPerformed
         new ViewAdminAlmacenComprarProductos().setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_ButtonComprarActionPerformed
 
     private void ButtonClientesEspecialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClientesEspecialesActionPerformed

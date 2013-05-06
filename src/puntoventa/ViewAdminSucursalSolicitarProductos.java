@@ -28,7 +28,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        ButtonRegresar = new javax.swing.JButton();
+        ButtonCancelar = new javax.swing.JButton();
         LabelCodBarras = new javax.swing.JLabel();
         LabelDescripcion = new javax.swing.JLabel();
         TextFieldCodBarras = new javax.swing.JTextField();
@@ -47,10 +47,10 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ButtonRegresar.setText("Regresar");
-        ButtonRegresar.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCancelar.setText("Cancelar");
+        ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRegresarActionPerformed(evt);
+                ButtonCancelarActionPerformed(evt);
             }
         });
 
@@ -140,7 +140,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ButtonRegresar))
+                .addComponent(ButtonCancelar))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +175,7 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(ButtonRegresar)
+                .addComponent(ButtonCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCodBarras)
@@ -238,10 +238,10 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarActionPerformed
-        new ViewAdminSucursalMenuPrincipal().setVisible(true);
+    private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
+       
         this.dispose();
-    }//GEN-LAST:event_ButtonRegresarActionPerformed
+    }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonEnviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnviarSolicitudActionPerformed
         new ViewAdminSucursalMenuPrincipal().setVisible(true);
@@ -255,8 +255,8 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAgregar;
     private javax.swing.JButton ButtonBuscar;
+    private javax.swing.JButton ButtonCancelar;
     private javax.swing.JButton ButtonEnviarSolicitud;
-    private javax.swing.JButton ButtonRegresar;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelCodBarras1;
