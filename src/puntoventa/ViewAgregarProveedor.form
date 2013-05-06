@@ -87,6 +87,7 @@
                     <Column editable="true" title="Nombre" type="java.lang.String"/>
                     <Column editable="true" title="Apellido1" type="java.lang.String"/>
                     <Column editable="true" title="Apellido2" type="java.lang.String"/>
+                    <Column editable="true" title="Sucursal" type="java.lang.String"/>
                     <Column editable="true" title="Descuento" type="java.lang.Integer"/>
                     <Column editable="true" title="Contacto" type="java.lang.String"/>
                     <Column editable="true" title="Telefono 1" type="java.lang.Long"/>
@@ -97,7 +98,6 @@
                     <Column editable="true" title="Provincia" type="java.lang.String"/>
                     <Column editable="true" title="Canton" type="java.lang.String"/>
                     <Column editable="true" title="Distrito" type="java.lang.String"/>
-                    <Column editable="true" title="Sucursal" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

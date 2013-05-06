@@ -69,11 +69,11 @@ public class ViewProveedores extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Descuento", "Contacto", "Telefono 1", "Telefono 2", "Telefono 3", "Email", "Direccion Exacta", "Provincia", "Canton", "Distrito", "Sucursal"
+                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Sucursal", "Descuento", "Contacto", "Telefono 1", "Telefono 2", "Telefono 3", "Email", "Direccion Exacta", "Provincia", "Canton", "Distrito"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
@@ -91,6 +91,11 @@ public class ViewProveedores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         ButtonAgregarDireccion.setText("Agregar Direccion a Proveedor");
+        ButtonAgregarDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarDireccionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,6 +171,10 @@ public class ViewProveedores extends javax.swing.JFrame {
     private void ButtonAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarNuevoActionPerformed
         new ViewAgregarProveedor().setVisible(true);
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
+
+    private void ButtonAgregarDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarDireccionActionPerformed
+        new ViewAgregarProveedor().setVisible(true);
+    }//GEN-LAST:event_ButtonAgregarDireccionActionPerformed
 
     /**
      * @param args the command line arguments

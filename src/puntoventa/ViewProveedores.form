@@ -153,6 +153,7 @@
                     <Column editable="false" title="Nombre" type="java.lang.String"/>
                     <Column editable="false" title="Apellido1" type="java.lang.String"/>
                     <Column editable="false" title="Apellido2" type="java.lang.String"/>
+                    <Column editable="false" title="Sucursal" type="java.lang.String"/>
                     <Column editable="false" title="Descuento" type="java.lang.Integer"/>
                     <Column editable="false" title="Contacto" type="java.lang.String"/>
                     <Column editable="false" title="Telefono 1" type="java.lang.Long"/>
@@ -163,7 +164,6 @@
                     <Column editable="false" title="Provincia" type="java.lang.String"/>
                     <Column editable="false" title="Canton" type="java.lang.String"/>
                     <Column editable="false" title="Distrito" type="java.lang.String"/>
-                    <Column editable="false" title="Sucursal" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -261,6 +261,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar Direccion a Proveedor"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAgregarDireccionActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
