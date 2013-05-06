@@ -36,14 +36,14 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Tipo Cedula", "Nombre", "Puesto", "Sucursal", "Comision", "Celular", "Telefono Casa", "Telefono Oficina", "Email", "Direccion Exacta", "Nivel Academico"
+                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido1", "Puesto", "Sucursal", "Comision", "Celular", "Telefono Casa", "Telefono Oficina", "Email", "Direccion Exacta", "Nivel Academico"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -53,17 +53,6 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(3).setResizable(false);
-        jTable1.getColumnModel().getColumn(4).setResizable(false);
-        jTable1.getColumnModel().getColumn(5).setResizable(false);
-        jTable1.getColumnModel().getColumn(6).setResizable(false);
-        jTable1.getColumnModel().getColumn(7).setResizable(false);
-        jTable1.getColumnModel().getColumn(8).setResizable(false);
-        jTable1.getColumnModel().getColumn(9).setResizable(false);
-        jTable1.getColumnModel().getColumn(10).setResizable(false);
-        jTable1.getColumnModel().getColumn(11).setResizable(false);
 
         ButtonAgregar.setText("Agregar");
         ButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
