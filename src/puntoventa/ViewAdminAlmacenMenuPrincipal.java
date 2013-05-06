@@ -42,6 +42,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         ButtonEmpleados = new javax.swing.JButton();
         ButtonClientesEspeciales = new javax.swing.JButton();
         ButtonEstadisticas = new javax.swing.JButton();
+        ButtonCambiarDatos = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -125,6 +126,13 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonCambiarDatos.setText("Cambiar Datos");
+        ButtonCambiarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCambiarDatosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,7 +162,8 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ButtonEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonSolicitarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonCambiarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ButtonProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -188,7 +197,9 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(ButtonEmpleados)
                     .addComponent(ButtonClientesEspeciales))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButtonEstadisticas)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonEstadisticas)
+                    .addComponent(ButtonCambiarDatos))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
@@ -251,9 +262,14 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         new ViewEstadisticas().setVisible(true);
     }//GEN-LAST:event_ButtonEstadisticasActionPerformed
 
+    private void ButtonCambiarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCambiarDatosActionPerformed
+        new ViewCambiarDatos().setVisible(true);
+    }//GEN-LAST:event_ButtonCambiarDatosActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
+    private javax.swing.JButton ButtonCambiarDatos;
     private javax.swing.JButton ButtonClientesEspeciales;
     private javax.swing.JButton ButtonComprar;
     private javax.swing.JButton ButtonEmpleados;
