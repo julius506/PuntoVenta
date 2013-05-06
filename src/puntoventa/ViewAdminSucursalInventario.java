@@ -70,7 +70,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Cant. Min.", "Cant. Actual", "Medida", "Precio Costo", "Precio Venta 1", "Precio Venta 2", "Precio Venta 3", "Utilidad 1", "Impuesto", "Descuento", "Ubicacion"
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Medida", "Precio Costo", "Precio Venta 1", "Precio Venta 2", "Precio Venta 3", "Utilidad 1", "Impuesto", "Descuento", "Ubicacion"
             }
         ) {
             Class[] types = new Class [] {
