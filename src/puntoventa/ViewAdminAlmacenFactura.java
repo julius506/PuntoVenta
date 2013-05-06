@@ -48,7 +48,7 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
         LabelCedulaCliente = new javax.swing.JLabel();
         FieldCodBarras = new javax.swing.JTextField();
         ButtonAgregar = new javax.swing.JButton();
-        ButtonRegresar = new javax.swing.JButton();
+        ButtonCancelar = new javax.swing.JButton();
         ButtonProcesar = new javax.swing.JButton();
         FieldCodBarras1 = new javax.swing.JTextField();
         FieldCodBarras2 = new javax.swing.JTextField();
@@ -223,10 +223,10 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
 
         ButtonAgregar.setText("Agregar");
 
-        ButtonRegresar.setText("Regresar");
-        ButtonRegresar.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCancelar.setText("Cancelar");
+        ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRegresarActionPerformed(evt);
+                ButtonCancelarActionPerformed(evt);
             }
         });
 
@@ -283,13 +283,13 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonRegresar))))
+                        .addComponent(ButtonCancelar))))
         );
         PanelMainLayout.setVerticalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainLayout.createSequentialGroup()
                 .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonRegresar)
+                    .addComponent(ButtonCancelar)
                     .addGroup(PanelMainLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -357,17 +357,17 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
         new ViewCajeroBuscarProducto().setVisible(true);
     }//GEN-LAST:event_ButtonBuscarActionPerformed
 
-    private void ButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegresarActionPerformed
+    private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         new ViewAdminAlmacenMenuPrincipal().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_ButtonRegresarActionPerformed
+    }//GEN-LAST:event_ButtonCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAgregar;
     private javax.swing.JButton ButtonBuscar;
+    private javax.swing.JButton ButtonCancelar;
     private javax.swing.JButton ButtonProcesar;
-    private javax.swing.JButton ButtonRegresar;
     private javax.swing.JComboBox ComboBoxDivisa;
     private javax.swing.JComboBox ComboBoxTipoCedula;
     private javax.swing.JTextField FieldCodBarras;
