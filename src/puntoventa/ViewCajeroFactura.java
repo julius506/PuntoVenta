@@ -15,11 +15,11 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
      */
     public ViewCajeroFactura() {
         initComponents();
-        LabelSubtotal.setText("0");
+        /*LabelSubtotal.setText("0");
         LabelValueTotal.setText("0");
         LabelValueImpuesto.setText("0");
         LabelValueDescuento.setText("0");
-        LabelValueTotalDivisa.setText("0");
+        LabelValueTotalDivisa.setText("0");*/
     }
 
     /**
