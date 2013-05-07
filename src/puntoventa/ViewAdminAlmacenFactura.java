@@ -9,7 +9,7 @@ package puntoventa;
  * @author Julian
  */
 public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
-      Impresora imp;
+
     /**
      * Creates new form ViewCajeroFactura
      */
@@ -231,11 +231,6 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
         });
 
         ButtonProcesar.setText("Procesar");
-        ButtonProcesar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonProcesarActionPerformed(evt);
-            }
-        });
 
         FieldCodBarras1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,7 +306,7 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
                             .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(FieldCodBarras2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(ComboBoxTipoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LabelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(LabelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonProcesar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -366,18 +361,6 @@ public class ViewAdminAlmacenFactura extends javax.swing.JFrame {
         new ViewAdminAlmacenMenuPrincipal().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonCancelarActionPerformed
-
-    private void ButtonProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProcesarActionPerformed
-// acá se procesará e imprimirá la factura
-        String cadena;
-        cadena = "acá se procesará e imprimirá la factura del Almacén";
-        if (!cadena.equals(""))
-				{
-					imp = new Impresora();
-					imp.imprimir(cadena);
-				}
-				else System.out.println("NO SE IMPRIME NADA EN BLANCO...");        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonProcesarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
