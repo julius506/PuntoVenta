@@ -1,0 +1,18 @@
+1)Agregar forma de modificar tipo de cambio de divisas																		Listo
+2)Eliminar que se necesite permiso para hacer cambios a la factura en cajero												
+3)Hacer documento escrito que especifique todos nuestros supuestos y funcionamiento del programa							
+4)Hacer algo para poder quitar productos por perdida o dano y que quede un log.												
+5)Hacer una forma para poder agregar o quitar sucursales																	
+6)Al agregar nuevos usuarios poner provincias y cantones en comboboxes														
+7)Permitir hacer cierres de caja a cajero.																					
+8)Incluir posibilidad de pago con tarjeto de credito (dinero en transito)													
+9)Que eliminar desactive en vez de borrar de la base de datos. Permitir reactivar.											
+10)Visualizar de alguna forma las solicitudes y los productos en transito asi como su historial.							
+11)Como obtener los precios mas actualizados de cada proveedor? como facturar orden de compra?								
+12)Permitir imprimir reportes y estadisticas																				
+13)Definir atributo tipo en productos para poder agrupar productos															
+14)Crear Interfase para asignar nombre de usuario y contrasenas a empleados													
+15)Dar un menu para poder variar de forma modular los permisos de los empleados												
+16)Al agregar un producto a una factura reservar el producto en la base de datos para que no se lo quite otro cliente		
+17)Considerar crear un cliente generico para agilizar ventas al cual se le asigna precio default.							
+	
