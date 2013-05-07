@@ -79,7 +79,7 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
 
         LabelCedula.setText("Cedula");
 
-        jLabel1.setText("Cedula");
+        jLabel1.setText("Tipo Cedula");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
