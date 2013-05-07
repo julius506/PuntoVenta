@@ -191,7 +191,6 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
         new ViewAdminSucursalFactura().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
     private void ButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInventarioActionPerformed

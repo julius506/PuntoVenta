@@ -133,8 +133,7 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
-        new ViewCajeroFactura().setVisible(true);
-        this.dispose();
+        new ViewFactura().setVisible(true);
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
    
