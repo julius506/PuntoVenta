@@ -9,7 +9,7 @@ package puntoventa;
  * @author Julian
  */
 public class ViewCajeroFactura extends javax.swing.JFrame {
-
+     Impresora imp;
     /**
      * Creates new form ViewCajeroFactura
      */
@@ -373,7 +373,16 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRegresarActionPerformed
 
     private void ButtonProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProcesarActionPerformed
-        // TODO add your handling code here:
+        // acá se procesará e imprimirá la factura
+        String cadena;
+        cadena = "acá se procesará e imprimirá la factura del Cajero";
+        if (!cadena.equals(""))
+				{
+					imp = new Impresora();
+					imp.imprimir(cadena);
+				}
+				else System.out.println("NO SE IMPRIME NADA EN BLANCO...");
+	
     }//GEN-LAST:event_ButtonProcesarActionPerformed
 
 
