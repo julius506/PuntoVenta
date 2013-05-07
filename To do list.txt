@@ -17,5 +17,6 @@
 17)Considerar crear un cliente generico para agilizar ventas al cual se le asigna precio default.							
 18)Arreglar problemas con tamanos de ventanas para varias resoluciones
 19)Unificar todos los tipos de factura en uno solo																			Listo
-20)Hacer mas bonitos los menus para agregar proveedores, clientesEspeciales, empleados, productos							En proceso
+20)Hacer mas bonitos los menus para agregar proveedores, clientesEspeciales, empleados, productos							Listo
+21)Hacer que agregar proveedores, clientesEspeciales, empleados, productos funcionen con el combobox para tipo cedula
 	
