@@ -60,6 +60,10 @@
                                   <Component id="ButtonBuscar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ButtonAgregarNuevo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -84,6 +88,8 @@
                       <Component id="TextFieldCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonAgregarNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="205" max="32767" attributes="0"/>
@@ -127,7 +133,7 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="17" rowCount="5">
+                  <Table columnCount="10" rowCount="5">
                     <Column editable="false" title="Cedula" type="java.lang.Long"/>
                     <Column editable="false" title="Tipo Cedula" type="java.lang.String"/>
                     <Column editable="true" title="Nombre" type="java.lang.String"/>
@@ -135,55 +141,13 @@
                     <Column editable="false" title="Apellido2" type="java.lang.String"/>
                     <Column editable="true" title="Descuento" type="java.lang.Integer"/>
                     <Column editable="false" title="Contacto" type="java.lang.String"/>
-                    <Column editable="false" title="Telefono 1" type="java.lang.Long"/>
-                    <Column editable="false" title="Telefono 2" type="java.lang.Long"/>
-                    <Column editable="false" title="Telefono 3" type="java.lang.Long"/>
                     <Column editable="false" title="Email" type="java.lang.String"/>
-                    <Column editable="false" title="Direccion Exacta" type="java.lang.String"/>
-                    <Column editable="false" title="Provincia" type="java.lang.String"/>
-                    <Column editable="false" title="Canton" type="java.lang.String"/>
-                    <Column editable="false" title="Distrito" type="java.lang.String"/>
                     <Column editable="false" title="Profesion" type="java.lang.String"/>
                     <Column editable="false" title="Nivel Academico" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -249,6 +213,22 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAgregarNuevoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver Telefonos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver Direcciones"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
