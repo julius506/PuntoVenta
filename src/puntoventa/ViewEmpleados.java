@@ -94,7 +94,7 @@ public class ViewEmpleados extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Editar");
+        jButton1.setText("Modificar");
 
         jButton2.setText("Eliminar");
 

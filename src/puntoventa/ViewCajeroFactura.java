@@ -147,7 +147,7 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
 
         LabelValueTotalDivisa.setText("0");
 
-        jButton1.setText("editar");
+        jButton1.setText("Modificar");
 
         jButton2.setText("Eliminar");
 
@@ -194,6 +194,7 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
                 .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelTableLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)))
@@ -284,10 +285,10 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
         PanelMain.setLayout(PanelMainLayout);
         PanelMainLayout.setHorizontalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainLayout.createSequentialGroup()
+            .addGroup(PanelMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PanelTable, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelMainLayout.createSequentialGroup()
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(LabelCodBarras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -343,9 +344,7 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(PanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,17 +364,9 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldCodBarrasActionPerformed
 
-    private void TextFieldCodigoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldCodigoDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldCodigoDescuentoActionPerformed
-
     private void FieldCodBarras2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCodBarras2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldCodBarras2ActionPerformed
-
-    private void ComboBoxDivisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxDivisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxDivisaActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
         new ViewCajeroBuscarProducto().setVisible(true);
@@ -398,6 +389,14 @@ public class ViewCajeroFactura extends javax.swing.JFrame {
 				else System.out.println("NO SE IMPRIME NADA EN BLANCO...");
 	
     }//GEN-LAST:event_ButtonProcesarActionPerformed
+
+    private void ComboBoxDivisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxDivisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxDivisaActionPerformed
+
+    private void TextFieldCodigoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldCodigoDescuentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCodigoDescuentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

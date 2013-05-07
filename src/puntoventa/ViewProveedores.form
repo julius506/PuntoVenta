@@ -54,13 +54,10 @@
                           <Component id="ButtonAgregarNuevo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="ButtonAgregarDireccion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="740" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="TextFieldNombre" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="TextFieldNombre" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="740" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -278,7 +275,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Editar"/>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
