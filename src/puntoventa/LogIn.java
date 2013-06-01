@@ -107,24 +107,53 @@ public class LogIn extends javax.swing.JFrame {
     private void ButtonLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogInActionPerformed
         
         //hay que modificar esto para que lo revise con la base de datos
-        String username = TextFieldUsername.getText();
-        switch (username) {
-            case "Cajero":
+        String usr = TextFieldUsername.getText();
+        String password;
+        password = String.valueOf(PasswordField.getPassword());
+        //esta fallando pasar de password a string para hacer consulta
+        String checkUsernamePassword = "select puesto from login where username='"+usr+"' and contrasena = '"+password+"';";
+        System.out.println(checkUsernamePassword);
+//        switch (usr) {
+//            case "Cajero":
+//                new ViewCajeroMenuPrincipal().setVisible(true);
+//                this.dispose();
+//                break;
+//            case "Sucursal":
+//                new ViewAdminSucursalMenuPrincipal().setVisible(true);
+//                this.dispose();
+//                break;
+//            case "Almacen":
+//                new ViewAdminAlmacenMenuPrincipal().setVisible(true);
+//                this.dispose();
+//                break;
+//            default:
+//                break;
+//        }
+        Conexion manager = new Conexion();
+        boolean exito = manager.consulta(checkUsernamePassword);
+        System.out.println("El valor de exito en logIn es");
+        System.out.println(exito);
+        if(exito) {
+            usr = manager.getHileraResultado();
+            System.out.println("El resultado de la consulta es");
+            System.out.println(usr);
+            
+            if(usr.contains("Cajero")){
                 new ViewCajeroMenuPrincipal().setVisible(true);
                 this.dispose();
-                break;
-            case "Sucursal":
-                new ViewAdminSucursalMenuPrincipal().setVisible(true);
+            }
+            if(usr.contains("Sucursal")){
+                new ViewCajeroMenuPrincipal().setVisible(true);
                 this.dispose();
-                break;
-            case "Almacen":
+            }
+            if(usr.contains("Almacen")){
                 new ViewAdminAlmacenMenuPrincipal().setVisible(true);
-                this.dispose();
-                break;
-            default:
-                break;
+                this.dispose();;
+            }
+            
+        } else {
+            System.out.println("No se ejecutó la consulta correctamente");
         }
-                
                          
         
         

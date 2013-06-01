@@ -30,14 +30,14 @@ public class Conexion {
         boolean exito = true;
         try {
             //Se abre la conexion utilizando el driver de postgres
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver"); //carga el driver para hablar con Postgre
             Connection conexion = DriverManager.getConnection(nombreConexion, username, password);
+            
             Statement comando = conexion.createStatement();
             ResultSet resultado = null;
             
             //Se ejecuta la instruccion SQL
             boolean consulta = comando.execute(sql);
-            
             if(consulta) {
                 //Si el resultado es 'true' significa que hubo una consulta con resultado
                 resultado = comando.getResultSet();
