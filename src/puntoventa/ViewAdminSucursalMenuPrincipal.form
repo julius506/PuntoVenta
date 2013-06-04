@@ -69,9 +69,11 @@
                               <Component id="ButtonSolicitarProductos" max="32767" attributes="0"/>
                               <Component id="ButtonEmpleados" alignment="1" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="ButtonEstadoCaja" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,6 +95,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ButtonFacturaNueva" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonEstadoCaja" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -194,6 +197,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEstadisticasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonEstadoCaja">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abrir Caja"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEstadoCajaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

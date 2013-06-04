@@ -49,6 +49,8 @@
                           <Component id="ButtonFacturaNueva" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           <Component id="ButtonBuscarProducto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Component id="ButtonEstadoCaja" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -62,7 +64,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -84,6 +86,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ButtonFacturaNueva" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonEstadoCaja" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="190" max="32767" attributes="0"/>
               </Group>
@@ -133,6 +136,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonBuscarProductoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonEstadoCaja">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abrir Caja"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEstadoCajaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -7,6 +7,14 @@
         <Property name="text" type="java.lang.String" value="jButton1"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JButton" name="ButtonEstadoCaja">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Abrir Caja"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEstadoCajaActionPerformed"/>
+      </Events>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -82,6 +90,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="ButtonProveedores" max="32767" attributes="0"/>
                               <Component id="ButtonComprar" max="32767" attributes="0"/>
+                              <Component id="ButtonEstadoCaja1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -106,7 +115,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ButtonFacturaNueva" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="ButtonBuscarProducto" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="ButtonBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ButtonEstadoCaja1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -237,6 +249,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCambiarDatosActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonEstadoCaja1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abrir Caja"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEstadoCaja1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

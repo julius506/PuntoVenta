@@ -34,6 +34,7 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
         ButtonLogOut = new javax.swing.JButton();
         ButtonFacturaNueva = new javax.swing.JButton();
         ButtonBuscarProducto = new javax.swing.JButton();
+        ButtonEstadoCaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,13 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonEstadoCaja.setText("Abrir Caja");
+        ButtonEstadoCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEstadoCajaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,7 +87,9 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonFacturaNueva)
                         .addGap(71, 71, 71)
-                        .addComponent(ButtonBuscarProducto))
+                        .addComponent(ButtonBuscarProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(ButtonEstadoCaja))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelUsuario)
@@ -88,7 +98,7 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelNumCedula)
                             .addComponent(LabelNombreUsuario))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +115,8 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonFacturaNueva)
-                    .addComponent(ButtonBuscarProducto))
+                    .addComponent(ButtonBuscarProducto)
+                    .addComponent(ButtonEstadoCaja))
                 .addContainerGap(190, Short.MAX_VALUE))
         );
 
@@ -124,6 +135,7 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
+        // Falta crear un if para que cierre la caja automaticamente si no lo hicieron antes
         new LogIn().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonLogOutActionPerformed
@@ -133,12 +145,19 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
+        // Falta crear un if para que abra la caja automaticamente si no lo hicieron antes
         new ViewFactura().setVisible(true);
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
+
+    private void ButtonEstadoCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEstadoCajaActionPerformed
+        EstadoActualCaja Estado = new EstadoActualCaja();
+        Estado.setVisible(true);
+    }//GEN-LAST:event_ButtonEstadoCajaActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
+    private javax.swing.JButton ButtonEstadoCaja;
     private javax.swing.JButton ButtonFacturaNueva;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JLabel LabelCedula;

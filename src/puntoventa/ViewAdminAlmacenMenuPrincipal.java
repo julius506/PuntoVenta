@@ -27,6 +27,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        ButtonEstadoCaja = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         LabelUsuario = new javax.swing.JLabel();
         LabelNombreUsuario = new javax.swing.JLabel();
@@ -43,8 +44,16 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         ButtonClientesEspeciales = new javax.swing.JButton();
         ButtonEstadisticas = new javax.swing.JButton();
         ButtonCambiarDatos = new javax.swing.JButton();
+        ButtonEstadoCaja1 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
+
+        ButtonEstadoCaja.setText("Abrir Caja");
+        ButtonEstadoCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEstadoCajaActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +142,13 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ButtonEstadoCaja1.setText("Abrir Caja");
+        ButtonEstadoCaja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEstadoCaja1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -167,7 +183,8 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ButtonProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(ButtonComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonEstadoCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,7 +202,9 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ButtonBuscarProducto)
+                        .addComponent(ButtonEstadoCaja1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonInventario)
@@ -218,6 +237,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
+        // Falta crear un if para que cierre la caja automaticamente si no lo hicieron antes
         new LogIn().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonLogOutActionPerformed
@@ -227,6 +247,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarProductoActionPerformed
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
+        // Falta crear un if para que abra la caja automaticamente si no lo hicieron antes
         new ViewFactura().setVisible(true);
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
@@ -265,6 +286,16 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         new ViewCambiarDatos().setVisible(true);
     }//GEN-LAST:event_ButtonCambiarDatosActionPerformed
 
+    private void ButtonEstadoCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEstadoCajaActionPerformed
+        EstadoActualCaja Estado = new EstadoActualCaja();
+        Estado.setVisible(true);
+    }//GEN-LAST:event_ButtonEstadoCajaActionPerformed
+
+    private void ButtonEstadoCaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEstadoCaja1ActionPerformed
+        EstadoActualCaja Estado = new EstadoActualCaja();
+        Estado.setVisible(true);
+    }//GEN-LAST:event_ButtonEstadoCaja1ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
@@ -273,6 +304,8 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ButtonComprar;
     private javax.swing.JButton ButtonEmpleados;
     private javax.swing.JButton ButtonEstadisticas;
+    private javax.swing.JButton ButtonEstadoCaja;
+    private javax.swing.JButton ButtonEstadoCaja1;
     private javax.swing.JButton ButtonFacturaNueva;
     private javax.swing.JButton ButtonInventario;
     private javax.swing.JButton ButtonLogOut;
