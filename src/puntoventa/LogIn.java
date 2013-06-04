@@ -113,22 +113,7 @@ public class LogIn extends javax.swing.JFrame {
         //esta fallando pasar de password a string para hacer consulta
         String checkUsernamePassword = "select puesto from login where username='"+usr+"' and contrasena = '"+password+"';";
         System.out.println(checkUsernamePassword);
-//        switch (usr) {
-//            case "Cajero":
-//                new ViewCajeroMenuPrincipal().setVisible(true);
-//                this.dispose();
-//                break;
-//            case "Sucursal":
-//                new ViewAdminSucursalMenuPrincipal().setVisible(true);
-//                this.dispose();
-//                break;
-//            case "Almacen":
-//                new ViewAdminAlmacenMenuPrincipal().setVisible(true);
-//                this.dispose();
-//                break;
-//            default:
-//                break;
-//        }
+// 
         Conexion manager = new Conexion();
         boolean exito = manager.consulta(checkUsernamePassword);
         System.out.println("El valor de exito en logIn es");
