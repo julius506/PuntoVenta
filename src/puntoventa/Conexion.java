@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Fernando Valverde y Alexis Devitre
  */
 public class Conexion {
-    private static final String nombreConexion = "jdbc:postgresql://localhost:5432/lab2/";
+    private static final String nombreConexion = "jdbc:postgresql://localhost:5432/PuntoVentaLogIn/";
     private static final String username = "postgres";
     private static final String password = "postgres";
     private String hileraResultado;
@@ -64,6 +64,50 @@ public class Conexion {
             } else {
                 //Como no se ejecuto una consulta, no se produjo ningun ResultSet
                 hileraResultado = "";
+                System.out.println("comando SQL ejecutado correctamente");
+            }
+            //Hay que cerrar la conexion
+            resultado.close();
+            comando.close();
+            conexion.close();
+        } catch (Exception e) {
+            //Es muy importante el try-catch para atrapar los posibles errores
+            //que pueden ocurrir en las distintas consultas y comandos SQL
+            System.out.println(e.getMessage());
+            exito = false;
+        }
+        //Se retorna si la ejecucion tuvo exito o no
+        return exito;
+    }
+    
+    public boolean consultaInsert(String sql) {
+        boolean exito = true;
+        try {
+            //Se abre la conexion utilizando el driver de postgres
+            Class.forName("org.postgresql.Driver"); //carga el driver para hablar con Postgre
+            Connection conexion = DriverManager.getConnection(nombreConexion, username, password);
+            
+            Statement comando = conexion.createStatement();
+            ResultSet resultado = null;
+            
+            //Se ejecuta la instruccion SQL
+            boolean consulta = comando.execute(sql);
+            if(consulta) {
+                //Si el resultado es 'true' significa que hubo una consulta con resultado
+                resultado = comando.getResultSet();
+                
+                //Se saca el MetaData para conocer la informacion del ResultSet
+                //El MetaData contiene toda la informacion sobre la tabla generada por la consulta
+                ResultSetMetaData metaData = resultado.getMetaData();
+                
+                //Por ejemplo, sacamos la cantidad de columnas del resultado
+                int cantidad= metaData.getColumnCount();
+                
+                hileraResultado = "exito";
+                resultado.close();
+            } else {
+                //Como no se ejecuto una consulta, no se produjo ningun ResultSet
+                hileraResultado = "exito";
                 System.out.println("comando SQL ejecutado correctamente");
             }
             //Hay que cerrar la conexion

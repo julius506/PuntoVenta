@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Julian
@@ -112,32 +114,36 @@ public class LogIn extends javax.swing.JFrame {
         password = String.valueOf(PasswordField.getPassword());
         //esta fallando pasar de password a string para hacer consulta
         String checkUsernamePassword = "select puesto from login where username='"+usr+"' and contrasena = '"+password+"';";
-        System.out.println(checkUsernamePassword);
+        //System.out.println(checkUsernamePassword);
 // 
         Conexion manager = new Conexion();
         boolean exito = manager.consulta(checkUsernamePassword);
-        System.out.println("El valor de exito en logIn es");
-        System.out.println(exito);
+        //System.out.println("El valor de exito en logIn es");
+        //System.out.println(exito);
         if(exito) {
             usr = manager.getHileraResultado();
-            System.out.println("El resultado de la consulta es");
-            System.out.println(usr);
-            
-            if(usr.contains("Cajero")){
+            //System.out.println("El resultado de la consulta es");
+            //System.out.println(usr);
+            usr = usr.replaceAll("\\W","");
+            //System.out.println(usr);
+            if(usr.equals("Cajero")){
                 new ViewCajeroMenuPrincipal().setVisible(true);
                 this.dispose();
+            }else{
+                if(usr.equals("Sucursal")){
+                    new ViewCajeroMenuPrincipal().setVisible(true);
+                    this.dispose();
+                }else{
+                    if(usr.equals("Almacen")){
+                       new ViewAdminAlmacenMenuPrincipal().setVisible(true);
+                       this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña no validos", "Alerta", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             }
-            if(usr.contains("Sucursal")){
-                new ViewCajeroMenuPrincipal().setVisible(true);
-                this.dispose();
-            }
-            if(usr.contains("Almacen")){
-                new ViewAdminAlmacenMenuPrincipal().setVisible(true);
-                this.dispose();;
-            }
-            
         } else {
-            System.out.println("No se ejecutó la consulta correctamente");
+            System.out.println("Consulta fallo");
         }
                          
         
