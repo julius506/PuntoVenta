@@ -83,6 +83,10 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         TextFieldEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         TextFieldContacto = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        TextFieldTipoTelefono = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        TextFieldTipoDireccion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,6 +197,16 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
 
         jLabel12.setText("Contacto");
 
+        jLabel13.setText("Tipo Telefono");
+
+        TextFieldTipoTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldTipoTelefonoActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Tipo Direccion");
+
         javax.swing.GroupLayout PanelNoJuridicoLayout = new javax.swing.GroupLayout(PanelNoJuridico);
         PanelNoJuridico.setLayout(PanelNoJuridicoLayout);
         PanelNoJuridicoLayout.setHorizontalGroup(
@@ -210,42 +224,47 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                                .addComponent(TextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2))
+                        .addComponent(TextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addComponent(TextFieldEmail))
+                            .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
+                                .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                    .addComponent(TextFieldEmail))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(TextFieldContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboBoxProvincia, 0, 111, Short.MAX_VALUE)
-                            .addComponent(TextFieldNombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelNoJuridicoLayout.createSequentialGroup()
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
+                                .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ComboBoxProvincia, 0, 111, Short.MAX_VALUE)
+                                    .addComponent(TextFieldNombre))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 19, Short.MAX_VALUE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(TextFieldApellido1)
+                                    .addComponent(ComboBoxCanton, 0, 130, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelNoJuridicoLayout.createSequentialGroup()
-                                .addComponent(TextFieldApellido1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelNoJuridicoLayout.createSequentialGroup()
-                                .addComponent(ComboBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(TextFieldApellido2)
-                            .addComponent(ComboBoxDistrito, 0, 136, Short.MAX_VALUE))
-                        .addGap(0, 21, Short.MAX_VALUE))))
+                            .addComponent(ComboBoxDistrito, 0, 136, Short.MAX_VALUE)
+                            .addComponent(TextFieldTipoDireccion)))))
         );
         PanelNoJuridicoLayout.setVerticalGroup(
             PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,10 +285,13 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                     .addComponent(ComboBoxDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(17, 17, 17)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(TextFieldTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -277,7 +299,9 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -342,7 +366,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                         .addComponent(PanelNoJuridico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonAgregar1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,14 +393,18 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         String canton = ComboBoxCanton.getSelectedItem().toString();
         String distrito = ComboBoxDistrito.getSelectedItem().toString();
         String direccion = TextFieldDireccion.getText();
+        String TipoDireccion = TextFieldTipoDireccion.getText();
         String descuento = TextFieldDescuento.getText();
         String telefono = TextFieldTelefono.getText();
+        String TipoTelefono = TextFieldTipoTelefono.getText();
         String email = TextFieldEmail.getText();
         String contacto = TextFieldContacto.getText();
         
-        String insertNewUser = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
-        String insertNewUser2 = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"', "+descuento+", '"+telefono+"', '"+email+"', '"+contacto+"', CURRENT_TIMESTAMP);";
-        String sqlQuery = insertNewUser+insertNewUser2;
+        String insertPersona = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
+        String insertProovedor = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', "+descuento+", '"+email+"', '"+contacto+"', CURRENT_TIMESTAMP);";
+        String insertTelefono = "insert into telefono values('"+cedula+"', '"+TipoTelefono+"', '"+telefono+"');";
+        String insertDireccion = "insert into direccion values('"+cedula+"', '"+TipoDireccion+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
+        String sqlQuery = insertPersona+insertProovedor+insertTelefono+insertDireccion;
         Conexion manager = new Conexion();
         boolean exito = manager.consultaInsert(sqlQuery);
         String resultado = manager.getHileraResultado();
@@ -443,6 +471,10 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
             manager.llenarCombobox(queryCanton, ComboBoxDistrito);
         }
     }//GEN-LAST:event_ComboBoxCantonActionPerformed
+
+    private void TextFieldTipoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTipoTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldTipoTelefonoActionPerformed
     
     /**
      * @param args the command line arguments
@@ -466,10 +498,14 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldEmail;
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JTextField TextFieldTelefono;
+    private javax.swing.JTextField TextFieldTipoDireccion;
+    private javax.swing.JTextField TextFieldTipoTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
