@@ -375,7 +375,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         String contacto = TextFieldContacto.getText();
         
         String insertNewUser = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
-        String insertNewUser2 = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"', "+descuento+", '"+telefono+"', '"+email+"', '"+contacto+"');";
+        String insertNewUser2 = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"', "+descuento+", '"+telefono+"', '"+email+"', '"+contacto+"', CURRENT_TIMESTAMP);";
         String sqlQuery = insertNewUser+insertNewUser2;
         Conexion manager = new Conexion();
         boolean exito = manager.consultaInsert(sqlQuery);
