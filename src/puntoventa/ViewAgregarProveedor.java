@@ -455,12 +455,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxProvinciaActionPerformed
 
     private void ComboBoxDistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxDistritoActionPerformed
-//        ComboBoxDistrito.removeAllItems();
-//        Conexion manager = new Conexion();
-//        if(ComboBoxCanton.getSelectedItem()!=null){
-//            String queryCanton = "select distinct distrito from lugar where provincia='"+ComboBoxCanton.getSelectedItem().toString()+"' order by distrito ASC;";
-//            manager.llenarCombobox(queryCanton, ComboBoxDistrito);
-//        } 
+
     }//GEN-LAST:event_ComboBoxDistritoActionPerformed
 
     private void ComboBoxCantonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCantonActionPerformed
