@@ -366,8 +366,8 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         String apellido1 = TextFieldApellido1.getText();
         String apellido2 = TextFieldApellido2.getText();
         String provincia = ComboBoxProvincia.getSelectedItem().toString();
-        String canton = ComboBoxProvincia.getSelectedItem().toString();
-        String distrito = ComboBoxProvincia.getSelectedItem().toString();
+        String canton = ComboBoxCanton.getSelectedItem().toString();
+        String distrito = ComboBoxDistrito.getSelectedItem().toString();
         String direccion = TextFieldDireccion.getText();
         String descuento = TextFieldDescuento.getText();
         String telefono = TextFieldTelefono.getText();
