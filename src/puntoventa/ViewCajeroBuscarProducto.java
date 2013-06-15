@@ -15,6 +15,10 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
      */
     public ViewCajeroBuscarProducto() {
         initComponents();
+        Conexion manager = new Conexion();
+        
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableInventario);
     }
 
     /**
@@ -34,7 +38,7 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
         TextFieldDescripcion = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableInventario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,27 +54,32 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
         LabelDescripcion.setText("Descripcion");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableInventario.setAutoCreateRowSorter(true);
+        TableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad"
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Medida", "Precio1", "Precio2", "Precio3", "Impuesto", "Descuento", "Ubicacion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -81,15 +90,19 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(3).setResizable(false);
-        jTable1.getColumnModel().getColumn(4).setResizable(false);
-        jTable1.getColumnModel().getColumn(5).setResizable(false);
-        jTable1.getColumnModel().getColumn(6).setResizable(false);
+        TableInventario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableInventario);
+        TableInventario.getColumnModel().getColumn(0).setResizable(false);
+        TableInventario.getColumnModel().getColumn(1).setResizable(false);
+        TableInventario.getColumnModel().getColumn(2).setResizable(false);
+        TableInventario.getColumnModel().getColumn(3).setResizable(false);
+        TableInventario.getColumnModel().getColumn(4).setResizable(false);
+        TableInventario.getColumnModel().getColumn(5).setResizable(false);
+        TableInventario.getColumnModel().getColumn(6).setResizable(false);
+        TableInventario.getColumnModel().getColumn(7).setResizable(false);
+        TableInventario.getColumnModel().getColumn(8).setResizable(false);
+        TableInventario.getColumnModel().getColumn(9).setResizable(false);
+        TableInventario.getColumnModel().getColumn(10).setResizable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,7 +114,7 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelCodBarras)
@@ -112,9 +125,8 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
                                 .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ButtonBuscar))
-                            .addComponent(TextFieldCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(TextFieldCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +150,9 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,6 +165,20 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_ButtonCancelarActionPerformed
+
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String codigo = TextFieldCodBarras.getText();
+        String descripcion = TextFieldDescripcion.getText();
+        String selectInventario = "";
+        if(descripcion.equals("")){
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"';";
+        }else{
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"' or descripcion like '%"+descripcion+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectInventario, TableInventario);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,10 +219,10 @@ public class ViewCajeroBuscarProducto extends javax.swing.JFrame {
     private javax.swing.JButton ButtonCancelar;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JTable TableInventario;
     private javax.swing.JTextField TextFieldCodBarras;
     private javax.swing.JTextField TextFieldDescripcion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
