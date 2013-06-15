@@ -15,6 +15,9 @@ public class ViewProveedores extends javax.swing.JFrame {
      */
     public ViewProveedores() {
         initComponents();
+        Conexion manager = new Conexion();
+        String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
+        manager.llenarTabla(queryProveedores, TableProveedores);
     }
 
     /**
@@ -35,7 +38,7 @@ public class ViewProveedores extends javax.swing.JFrame {
         ButtonBuscar = new javax.swing.JButton();
         ButtonAgregarNuevo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableProveedores = new javax.swing.JTable();
         ButtonAgregarDireccion = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -55,6 +58,11 @@ public class ViewProveedores extends javax.swing.JFrame {
         LabelDescripcion.setText("Cedula");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
         ButtonAgregarNuevo.setText("Agregar Nuevo");
         ButtonAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -63,23 +71,23 @@ public class ViewProveedores extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Sucursal", "Descuento", "Contacto", "Telefono 1", "Telefono 2", "Telefono 3", "Email", "Direccion Exacta", "Provincia", "Canton", "Distrito"
+                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Descuento", "Contacto", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -90,8 +98,8 @@ public class ViewProveedores extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        TableProveedores.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableProveedores);
 
         ButtonAgregarDireccion.setText("Direcciones");
         ButtonAgregarDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -148,8 +156,8 @@ public class ViewProveedores extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(76, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(90, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +210,10 @@ public class ViewProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
     private void ButtonAgregarDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarDireccionActionPerformed
-        new ViewDireccion().setVisible(true);
+        int row = TableProveedores.getSelectedRow();
+        int column = 0;
+        String cedula = TableProveedores.getValueAt(row, column).toString();
+        new ViewDireccion(cedula).setVisible(true);
     }//GEN-LAST:event_ButtonAgregarDireccionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -212,6 +223,20 @@ public class ViewProveedores extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new ViewTelefonos().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String cedula = TextFieldCedula.getText();
+        String nombre = TextFieldNombre.getText();
+        String selectProveedores = "";
+        if(nombre.equals("")){
+            selectProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor where cedula = '"+cedula+"';";
+        }else{
+            selectProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor where cedula = '"+cedula+"' or nombre like '%"+nombre+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectProveedores, TableProveedores);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +279,7 @@ public class ViewProveedores extends javax.swing.JFrame {
     private javax.swing.JButton ButtonCancelar;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelNombre;
+    private javax.swing.JTable TableProveedores;
     private javax.swing.JTextField TextFieldCedula;
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JButton jButton1;
@@ -261,6 +287,5 @@ public class ViewProveedores extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
