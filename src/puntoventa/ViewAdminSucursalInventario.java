@@ -179,7 +179,17 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
-        new ViewCajeroBuscarProducto().setVisible(true);
+        String codigo = TextFieldCodBarras.getText();
+        String descripcion = TextFieldDescripcion.getText();
+        String selectInventario = "";
+        if(descripcion.equals("")){
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"';";
+        }else{
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"' or descripcion like '%"+descripcion+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectInventario, TableInventario);
     }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     private void ButtonAgregarProductoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarProductoNuevoActionPerformed
