@@ -13,8 +13,13 @@ public class ViewDireccion extends javax.swing.JFrame {
     /**
      * Creates new form ViewDireccion
      */
-    public ViewDireccion() {
+    public ViewDireccion(String cedula) {
         initComponents();
+        
+        Conexion manager = new Conexion();
+        String queryDirecciones = "select provincia, canton, distrito from persona natural join proveedor natural join direccion where cedula = '"+cedula+"';";
+        manager.llenarTabla(queryDirecciones, TableDirecciones);
+        
     }
 
     /**
@@ -28,14 +33,14 @@ public class ViewDireccion extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableDirecciones = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Direcciones");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableDirecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -54,7 +59,7 @@ public class ViewDireccion extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableDirecciones);
 
         jButton1.setText("Cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,9 +104,9 @@ public class ViewDireccion extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableDirecciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
