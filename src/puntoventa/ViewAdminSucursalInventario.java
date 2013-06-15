@@ -15,6 +15,10 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
      */
     public ViewAdminSucursalInventario() {
         initComponents();
+        Conexion manager = new Conexion();
+        
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableInventario);
     }
 
     /**
@@ -34,7 +38,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
         TextFieldDescripcion = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableInventario = new javax.swing.JTable();
         ButtonAgregarProductoNuevo = new javax.swing.JButton();
         ButtonSolicitarProducto = new javax.swing.JButton();
 
@@ -58,26 +62,26 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableInventario.setAutoCreateRowSorter(true);
+        TableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Medida", "Precio Costo", "Precio Venta 1", "Precio Venta 2", "Precio Venta 3", "Utilidad 1", "Impuesto", "Descuento", "Ubicacion"
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Medida", "Precio Costo", "Precio Venta 1", "Precio Venta 2", "Precio Venta 3", "Impuesto", "Descuento", "Ubicacion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,8 +92,8 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        TableInventario.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableInventario);
 
         ButtonAgregarProductoNuevo.setText("Agregar Producto Nuevo");
         ButtonAgregarProductoNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -227,10 +231,10 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     private javax.swing.JButton ButtonSolicitarProducto;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JTable TableInventario;
     private javax.swing.JTextField TextFieldCodBarras;
     private javax.swing.JTextField TextFieldDescripcion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
