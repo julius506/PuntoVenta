@@ -15,6 +15,10 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
      */
     public ViewAdminSucursalSolicitarProductos() {
         initComponents();
+        Conexion manager = new Conexion();
+        
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableInventario);
     }
 
     /**
@@ -35,14 +39,14 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         TextFieldDescripcion = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         ScrollPaneBuscar = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableInventario = new javax.swing.JTable();
         LabelCodBarras1 = new javax.swing.JLabel();
         TextFieldCodBarras1 = new javax.swing.JTextField();
         LabelCantidad = new javax.swing.JLabel();
         TextFieldCantidad = new javax.swing.JTextField();
         ButtonAgregar = new javax.swing.JButton();
         ScrollPaneBuscar1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablePedido = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         ButtonEnviarSolicitud = new javax.swing.JButton();
@@ -61,9 +65,14 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         LabelDescripcion.setText("Descripcion");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableInventario.setAutoCreateRowSorter(true);
+        TableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -92,8 +101,8 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        ScrollPaneBuscar.setViewportView(jTable1);
+        TableInventario.getTableHeader().setReorderingAllowed(false);
+        ScrollPaneBuscar.setViewportView(TableInventario);
 
         LabelCodBarras1.setText("Codigo Barras");
 
@@ -103,8 +112,8 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
 
         ButtonAgregar.setText("Agregar");
 
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablePedido.setAutoCreateRowSorter(true);
+        TablePedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -133,8 +142,8 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        ScrollPaneBuscar1.setViewportView(jTable2);
+        TablePedido.getTableHeader().setReorderingAllowed(false);
+        ScrollPaneBuscar1.setViewportView(TablePedido);
 
         jButton1.setText("Modificar");
 
@@ -263,6 +272,20 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ButtonEnviarSolicitudActionPerformed
 
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String codigo = TextFieldCodBarras.getText();
+        String descripcion = TextFieldDescripcion.getText();
+        String selectInventario = "";
+        if(descripcion.equals("")){
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"';";
+        }else{
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto where cod='"+codigo+"' or descripcion like '%"+descripcion+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectInventario, TableInventario);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -278,6 +301,8 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JScrollPane ScrollPaneBuscar;
     private javax.swing.JScrollPane ScrollPaneBuscar1;
+    private javax.swing.JTable TableInventario;
+    private javax.swing.JTable TablePedido;
     private javax.swing.JTextField TextFieldCantidad;
     private javax.swing.JTextField TextFieldCodBarras;
     private javax.swing.JTextField TextFieldCodBarras1;
@@ -286,7 +311,5 @@ public class ViewAdminSucursalSolicitarProductos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
