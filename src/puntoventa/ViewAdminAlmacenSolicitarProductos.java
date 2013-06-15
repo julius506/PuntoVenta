@@ -108,6 +108,11 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         TextFieldCantidad.setText("1");
 
         ButtonAgregar.setText("Agregar");
+        ButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarActionPerformed(evt);
+            }
+        });
 
         TablePedido.setAutoCreateRowSorter(true);
         TablePedido.setModel(new javax.swing.table.DefaultTableModel(
@@ -296,6 +301,11 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         Conexion manager = new Conexion();
         manager.llenarTabla(selectInventario, TableInventario);
     }//GEN-LAST:event_ButtonBuscarActionPerformed
+
+    private void ButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
+        int column = TableInventario.getSelectedColumn();
+        int row = TableInventario.getSelectedRow();
+    }//GEN-LAST:event_ButtonAgregarActionPerformed
 
     /**
      * @param args the command line arguments

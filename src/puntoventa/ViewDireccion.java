@@ -17,7 +17,7 @@ public class ViewDireccion extends javax.swing.JFrame {
         initComponents();
         
         Conexion manager = new Conexion();
-        String queryDirecciones = "select provincia, canton, distrito from persona natural join proveedor natural join direccion where cedula = '"+cedula+"';";
+        String queryDirecciones = "select provincia, canton, distrito, senas from persona natural join proveedor natural join direccion where cedula = '"+cedula+"';";
         manager.llenarTabla(queryDirecciones, TableDirecciones);
         
     }

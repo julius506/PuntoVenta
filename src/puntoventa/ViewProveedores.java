@@ -221,7 +221,10 @@ public class ViewProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new ViewTelefonos().setVisible(true);// TODO add your handling code here:
+        int row = TableProveedores.getSelectedRow();
+        int column = 0;
+        String cedula = TableProveedores.getValueAt(row, column).toString();
+        new ViewTelefonos(cedula).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed

@@ -198,11 +198,13 @@ public class ViewEmpleados extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new ViewTelefonos().setVisible(true);// TODO add your handling code here:
+        String cedula = "";
+        new ViewTelefonos(cedula).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new ViewDireccion().setVisible(true);// TODO add your handling code here:
+        String cedula = "";
+        new ViewDireccion(cedula).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

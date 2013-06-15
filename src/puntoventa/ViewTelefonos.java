@@ -13,8 +13,12 @@ public class ViewTelefonos extends javax.swing.JFrame {
     /**
      * Creates new form ViewTelefonos
      */
-    public ViewTelefonos() {
+    public ViewTelefonos(String cedula) {
         initComponents();
+        
+        Conexion manager = new Conexion();
+        String queryTelefonos = "select Num_Tel, provincia, canton, distrito, senas from persona natural join proveedor natural join direccion natural join telefono where ID_TEL = ID_Direcc and where cedula = '"+cedula+"';";
+        manager.llenarTabla(queryTelefonos, TableTelefonos);
     }
 
     /**
@@ -28,27 +32,42 @@ public class ViewTelefonos extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableTelefonos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Telefonos");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableTelefonos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Numero de Telefono", "Cedula", "Comentario"
+                "Numero de Telefono", "Provincia", "Canton", "Distrito", "Senas"
             }
-        ));
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TableTelefonos.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(TableTelefonos);
+        TableTelefonos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jButton1.setText("Cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,11 +83,16 @@ public class ViewTelefonos extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .add(29, 29, 29)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jButton1)
-                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 348, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(jLabel1)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .add(layout.createSequentialGroup()
+                        .add(jButton1)
+                        .addContainerGap(537, Short.MAX_VALUE))
+                    .add(layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(jLabel1)
+                        .add(301, 301, 301))
+                    .add(layout.createSequentialGroup()
+                        .add(jScrollPane1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -94,9 +118,9 @@ public class ViewTelefonos extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableTelefonos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
