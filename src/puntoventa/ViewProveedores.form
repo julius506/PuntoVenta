@@ -53,9 +53,9 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="ButtonAgregarNuevo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="AgregarTelefono" min="-2" max="-2" attributes="0"/>
+                          <Component id="Telefono" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ButtonAgregarDireccion" min="-2" max="-2" attributes="0"/>
+                          <Component id="Direccion" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="TextFieldNombre" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
@@ -93,8 +93,8 @@
                       <Component id="TextFieldCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonAgregarNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ButtonAgregarDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AgregarTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Telefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="ButtonModificar" min="-2" max="-2" attributes="0"/>
@@ -223,12 +223,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="ButtonAgregarDireccion">
+        <Component class="javax.swing.JButton" name="Direccion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Direcciones"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAgregarDireccionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DireccionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ButtonModificar">
@@ -247,12 +247,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonEliminarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AgregarTelefono">
+        <Component class="javax.swing.JButton" name="Telefono">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefonos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarTelefonoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TelefonoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Julian
@@ -15,6 +17,15 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
      */
     public ViewClientesEspeciales() {
         initComponents();
+        ButtonModificar.setVisible(false);
+        Conexion manager = new Conexion();
+        
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        String fisicos = manager.getHileraResultado();
+        
+//        String queryClientesJuridicos = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
+//        String juridicos = manager.getHileraResultado();
+        manager.llenarTabla(queryClientes, TableClientes);
     }
 
     /**
@@ -34,12 +45,13 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
         TextFieldCedula = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableClientes = new javax.swing.JTable();
         ButtonAgregarNuevo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ButtonModificar = new javax.swing.JButton();
+        ButtonEliminar = new javax.swing.JButton();
+        ButtonTelefono = new javax.swing.JButton();
+        ButtonDireccion = new javax.swing.JButton();
+        ButtonRefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,24 +67,29 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
         LabelDescripcion.setText("Cedula");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Descuento", "Contacto", "Email", "Profesion", "Nivel Academico"
+                "Cedula", "Tipo Cedula", "Nombre", "Apellido1", "Apellido2", "Descuento", "Nivel Academico"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, true, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -83,8 +100,8 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        TableClientes.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableClientes);
 
         ButtonAgregarNuevo.setText("Agregar Nuevo");
         ButtonAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -93,26 +110,33 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Modificar");
+        ButtonModificar.setText("Modificar");
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ButtonEliminar.setText("Eliminar");
+        ButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ButtonEliminarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Telefonos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ButtonTelefono.setText("Telefonos");
+        ButtonTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ButtonTelefonoActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Direcciones");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        ButtonDireccion.setText("Direcciones");
+        ButtonDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                ButtonDireccionActionPerformed(evt);
+            }
+        });
+
+        ButtonRefrescar.setText("Refrescar");
+        ButtonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefrescarActionPerformed(evt);
             }
         });
 
@@ -130,7 +154,9 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
                             .addComponent(LabelDescripcion))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(TextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,15 +164,16 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonAgregarNuevo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(ButtonTelefono)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(ButtonDireccion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ButtonRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ButtonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(ButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,16 +189,17 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
                     .addComponent(TextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonBuscar)
                     .addComponent(ButtonAgregarNuevo)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(ButtonTelefono)
+                    .addComponent(ButtonDireccion)
+                    .addComponent(ButtonRefrescar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1)
+                        .addComponent(ButtonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(ButtonEliminar)
                         .addGap(0, 123, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -196,21 +224,61 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
 
     private void ButtonAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarNuevoActionPerformed
         new ViewAgregarClienteEspecial().setVisible(true);
+        Conexion manager = new Conexion();
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        manager.llenarTabla(queryClientes, TableClientes);
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
+        int row = TableClientes.getSelectedRow();
+        int column = 0;
+        String cedula = TableClientes.getValueAt(row, column).toString();
+        
+        Conexion manager = new Conexion();
+        String queryEliminarClientes = "delete from cliente where cedula ='"+cedula+"';";
+        
+        boolean exito = manager.consulta(queryEliminarClientes);
+        if(exito) {
+            String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+            manager.llenarTabla(queryClientes, TableClientes);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar cliente", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ButtonEliminarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String cedula = "";
-        new ViewTelefonos(cedula).setVisible(true); // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void ButtonTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTelefonoActionPerformed
+        int row = TableClientes.getSelectedRow();
+        int column = 0;
+        String cedula = TableClientes.getValueAt(row, column).toString();
+        new ViewTelefonos(cedula).setVisible(true);
+    }//GEN-LAST:event_ButtonTelefonoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       String cedula = "";
-        new ViewDireccion(cedula).setVisible(true); // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void ButtonDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDireccionActionPerformed
+       int row = TableClientes.getSelectedRow();
+        int column = 0;
+        String cedula = TableClientes.getValueAt(row, column).toString();
+        new ViewDireccion(cedula).setVisible(true);
+    }//GEN-LAST:event_ButtonDireccionActionPerformed
+
+    private void ButtonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefrescarActionPerformed
+        Conexion manager = new Conexion();
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        manager.llenarTabla(queryClientes, TableClientes);
+    }//GEN-LAST:event_ButtonRefrescarActionPerformed
+
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String cedula = TextFieldCedula.getText();
+        String nombre = TextFieldNombre.getText();
+        String selectCliente = "";
+        if(nombre.equals("")){
+            selectCliente = "select cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C natural join fisico where cedula = '"+cedula+"';";
+        }else{
+            selectCliente = "select cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C natural join fisico where cedula = '"+cedula+"' or nombreP like '%"+nombre+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectCliente, TableClientes);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,16 +318,17 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
     private javax.swing.JButton ButtonAgregarNuevo;
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
+    private javax.swing.JButton ButtonDireccion;
+    private javax.swing.JButton ButtonEliminar;
+    private javax.swing.JButton ButtonModificar;
+    private javax.swing.JButton ButtonRefrescar;
+    private javax.swing.JButton ButtonTelefono;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelNombre;
+    private javax.swing.JTable TableClientes;
     private javax.swing.JTextField TextFieldCedula;
     private javax.swing.JTextField TextFieldNombre;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

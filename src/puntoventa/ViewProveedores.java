@@ -42,10 +42,10 @@ public class ViewProveedores extends javax.swing.JFrame {
         ButtonAgregarNuevo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableProveedores = new javax.swing.JTable();
-        ButtonAgregarDireccion = new javax.swing.JButton();
+        Direccion = new javax.swing.JButton();
         ButtonModificar = new javax.swing.JButton();
         ButtonEliminar = new javax.swing.JButton();
-        AgregarTelefono = new javax.swing.JButton();
+        Telefono = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,10 +104,10 @@ public class ViewProveedores extends javax.swing.JFrame {
         TableProveedores.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableProveedores);
 
-        ButtonAgregarDireccion.setText("Direcciones");
-        ButtonAgregarDireccion.addActionListener(new java.awt.event.ActionListener() {
+        Direccion.setText("Direcciones");
+        Direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgregarDireccionActionPerformed(evt);
+                DireccionActionPerformed(evt);
             }
         });
 
@@ -125,10 +125,10 @@ public class ViewProveedores extends javax.swing.JFrame {
             }
         });
 
-        AgregarTelefono.setText("Telefonos");
-        AgregarTelefono.addActionListener(new java.awt.event.ActionListener() {
+        Telefono.setText("Telefonos");
+        Telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarTelefonoActionPerformed(evt);
+                TelefonoActionPerformed(evt);
             }
         });
 
@@ -150,9 +150,9 @@ public class ViewProveedores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ButtonAgregarNuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AgregarTelefono)
+                        .addComponent(Telefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonAgregarDireccion))
+                        .addComponent(Direccion))
                     .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(761, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -181,8 +181,8 @@ public class ViewProveedores extends javax.swing.JFrame {
                     .addComponent(TextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonBuscar)
                     .addComponent(ButtonAgregarNuevo)
-                    .addComponent(ButtonAgregarDireccion)
-                    .addComponent(AgregarTelefono))
+                    .addComponent(Direccion)
+                    .addComponent(Telefono))
                 .addGap(52, 52, 52)
                 .addComponent(ButtonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -220,12 +220,12 @@ public class ViewProveedores extends javax.swing.JFrame {
         manager.llenarTabla(queryProveedores, TableProveedores);
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
-    private void ButtonAgregarDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarDireccionActionPerformed
+    private void DireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DireccionActionPerformed
         int row = TableProveedores.getSelectedRow();
         int column = 0;
         String cedula = TableProveedores.getValueAt(row, column).toString();
         new ViewDireccion(cedula).setVisible(true);
-    }//GEN-LAST:event_ButtonAgregarDireccionActionPerformed
+    }//GEN-LAST:event_DireccionActionPerformed
 
     private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
         int row = TableProveedores.getSelectedRow();
@@ -244,12 +244,12 @@ public class ViewProveedores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonEliminarActionPerformed
 
-    private void AgregarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarTelefonoActionPerformed
+    private void TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoActionPerformed
         int row = TableProveedores.getSelectedRow();
         int column = 0;
         String cedula = TableProveedores.getValueAt(row, column).toString();
         new ViewTelefonos(cedula).setVisible(true);
-    }//GEN-LAST:event_AgregarTelefonoActionPerformed
+    }//GEN-LAST:event_TelefonoActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
         String cedula = TextFieldCedula.getText();
@@ -308,16 +308,16 @@ public class ViewProveedores extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarTelefono;
-    private javax.swing.JButton ButtonAgregarDireccion;
     private javax.swing.JButton ButtonAgregarNuevo;
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
     private javax.swing.JButton ButtonEliminar;
     private javax.swing.JButton ButtonModificar;
+    private javax.swing.JButton Direccion;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JTable TableProveedores;
+    private javax.swing.JButton Telefono;
     private javax.swing.JTextField TextFieldCedula;
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JPanel jPanel1;

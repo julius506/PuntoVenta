@@ -63,6 +63,11 @@ public class ViewEmpleados extends javax.swing.JFrame {
         LabelDescripcion.setText("Cedula");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
         TableEmpleado.setAutoCreateRowSorter(true);
         TableEmpleado.setModel(new javax.swing.table.DefaultTableModel(
@@ -255,6 +260,20 @@ public class ViewEmpleados extends javax.swing.JFrame {
         String queryLlenar = "select cedula, tipo, nombreP, apellido1, apellido2, puesto, sucursal, comision, email, Grado_Aca from persona natural join empleado natural join fisico;";
         manager.llenarTabla(queryLlenar, TableEmpleado);
     }//GEN-LAST:event_ButtonRefrescarActionPerformed
+
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String cedula = TextFieldCedula.getText();
+        String nombre = TextFieldNombre.getText();
+        String selectEmpleados = "";
+        if(nombre.equals("")){
+            selectEmpleados = "select cedula, tipo, nombreP, apellido1, apellido2, puesto, sucursal, comision, email, Grado_Aca from persona natural join empleado natural join fisico where cedula = '"+cedula+"';";
+        }else{
+            selectEmpleados = "select cedula, tipo, nombreP, apellido1, apellido2, puesto, sucursal, comision, email, Grado_Aca from persona natural join empleado natural join fisico where cedula = '"+cedula+"' or nombre like '%"+nombre+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectEmpleados, TableEmpleado);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     /**
      * @param args the command line arguments
