@@ -20,7 +20,7 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
         ButtonModificar.setVisible(false);
         Conexion manager = new Conexion();
         
-        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula) UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
         String fisicos = manager.getHileraResultado();
         
 //        String queryClientesJuridicos = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
@@ -225,7 +225,7 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
     private void ButtonAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarNuevoActionPerformed
         new ViewAgregarClienteEspecial().setVisible(true);
         Conexion manager = new Conexion();
-        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula)  UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
         manager.llenarTabla(queryClientes, TableClientes);
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
@@ -239,7 +239,7 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
         
         boolean exito = manager.consulta(queryEliminarClientes);
         if(exito) {
-            String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+            String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula)  UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
             manager.llenarTabla(queryClientes, TableClientes);
         }else{
             JOptionPane.showMessageDialog(null, "No se pudo eliminar cliente", "Alerta", JOptionPane.ERROR_MESSAGE);
@@ -262,7 +262,7 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
 
     private void ButtonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefrescarActionPerformed
         Conexion manager = new Conexion();
-        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula);";
+        String queryClientes = "select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula)  UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula);";
         manager.llenarTabla(queryClientes, TableClientes);
     }//GEN-LAST:event_ButtonRefrescarActionPerformed
 
@@ -271,9 +271,9 @@ public class ViewClientesEspeciales extends javax.swing.JFrame {
         String nombre = TextFieldNombre.getText();
         String selectCliente = "";
         if(nombre.equals("")){
-            selectCliente = "select cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C natural join fisico where cedula = '"+cedula+"';";
+            selectCliente = "select * from (select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula)  UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula)) as A where A.cedula = '"+cedula+"';";
         }else{
-            selectCliente = "select cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C natural join fisico where cedula = '"+cedula+"' or nombreP like '%"+nombre+"%' ;";
+            selectCliente = "select * from (select C.cedula, tipo, nombreP, apellido1, apellido2, descuento, Grado_Aca from (cliente natural join persona) as C, fisico where (C.cedula = fisico.cedula)  UNION select C.cedula, tipo, nombre as nombreP, '', '', descuento, '' from (cliente natural join persona) as C, juridico where (C.cedula = juridico.cedula)) as A where A.cedula = '"+cedula+"' or A.nombreP like '%"+nombre+"%' ;";
         }
         
         Conexion manager = new Conexion();
