@@ -77,10 +77,6 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
         TextFieldEmail = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         TextFieldNivelAcademico = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        TextFieldTipoTelefono = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        TextFieldTipoDireccion = new javax.swing.JTextField();
         CheckBoxExento = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         LabelCedula = new javax.swing.JLabel();
@@ -180,16 +176,6 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
 
         jLabel13.setText("Nivel Academico");
 
-        jLabel14.setText("Tipo Telefono");
-
-        TextFieldTipoTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldTipoTelefonoActionPerformed(evt);
-            }
-        });
-
-        jLabel15.setText("Tipo Direccion");
-
         CheckBoxExento.setText("   Exento de impuestos");
 
         jLabel1.setText("Tipo Cedula");
@@ -225,10 +211,6 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
                                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(TextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                                     .addComponent(TextFieldEmail))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
                                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +218,7 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
                                         .addComponent(TextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(CheckBoxExento, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(0, 154, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelNoJuridicoLayout.createSequentialGroup()
                                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
@@ -259,15 +241,10 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
                                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addComponent(jScrollPane2))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(ComboBoxDistrito, 0, 120, Short.MAX_VALUE)
-                                                .addComponent(TextFieldApellido2))
-                                            .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                                                .addComponent(jLabel15)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(TextFieldTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 32, Short.MAX_VALUE)))
+                                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ComboBoxDistrito, 0, 120, Short.MAX_VALUE)
+                                            .addComponent(TextFieldApellido2))
+                                        .addGap(0, 53, Short.MAX_VALUE)))
                                 .addContainerGap())))
                     .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,10 +288,7 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(TextFieldTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5))
                 .addGap(7, 7, 7)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -323,9 +297,7 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -417,25 +389,23 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
         String canton = ComboBoxCanton.getSelectedItem().toString();
         String distrito = ComboBoxDistrito.getSelectedItem().toString();
         String direccion = TextFieldDireccion.getText();
-        String TipoDireccion = TextFieldTipoDireccion.getText();
         String descuento = TextFieldDescuento.getText();
         boolean exento = CheckBoxExento.isSelected();
         String telefono = TextFieldTelefono.getText();
-        String TipoTelefono = TextFieldTipoTelefono.getText();
         String email = TextFieldEmail.getText();
         String nivelAcademico = TextFieldNivelAcademico.getText();
         
         String insertPersona = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
         String insertCliente = "insert into cliente values('"+cedula+"', '"+descuento+"', "+exento+");";
-        String insertTelefono = "insert into telefono values('"+cedula+"', '"+TipoTelefono+"', '"+telefono+"');";
-        String insertDireccion = "insert into direccion values('"+cedula+"', '"+TipoDireccion+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
+        String insertTelefono = "insert into telefono values('"+cedula+"', '"+telefono+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
+        String insertDireccion = "insert into direccion values('"+cedula+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
         String insertTipoCedula = "";
         if(TipoCedula.contains("Juridico")){
             insertTipoCedula = "insert into juridico values('"+cedula+"', '"+nombre+"');";
         }else{
             insertTipoCedula = "insert into fisico values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', '"+nivelAcademico+"');";
         }
-        String sqlQuery = insertPersona+insertCliente+insertTelefono+insertDireccion+insertTipoCedula;
+        String sqlQuery = insertPersona+insertCliente+insertDireccion+insertTelefono+insertTipoCedula;
         Conexion manager = new Conexion();
         boolean exito = manager.consultaInsert(sqlQuery);
         String resultado = manager.getHileraResultado();
@@ -448,10 +418,6 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se pudo agregar cliente nuevo, hay algun dato no valido", "Alerta", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ButtonAgregarActionPerformed
-
-    private void TextFieldTipoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTipoTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldTipoTelefonoActionPerformed
 
     private void ComboBoxProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxProvinciaActionPerformed
         ComboBoxCanton.removeAllItems();
@@ -494,14 +460,10 @@ public class ViewAgregarClienteEspecial extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldNivelAcademico;
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JTextField TextFieldTelefono;
-    private javax.swing.JTextField TextFieldTipoDireccion;
-    private javax.swing.JTextField TextFieldTipoTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
