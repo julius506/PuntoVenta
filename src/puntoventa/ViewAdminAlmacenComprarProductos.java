@@ -15,6 +15,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
      */
     public ViewAdminAlmacenComprarProductos() {
         initComponents();
+        ButtonModificar.setVisible(false);
     }
 
     /**
@@ -46,7 +47,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         LabelProveedor = new javax.swing.JLabel();
         ButtonComprar = new javax.swing.JButton();
         ButtonCancelar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        ButtonModificar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,9 +141,8 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(ScrollPaneBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelCodBarras)
@@ -166,7 +166,8 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                         .addComponent(TextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ScrollPaneBuscar)))
+                    .addComponent(ScrollPaneBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
+                    .addComponent(ScrollPaneBuscar1)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +215,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +233,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Modificar");
+        ButtonModificar.setText("Modificar");
 
         jButton2.setText("Eliminar");
 
@@ -245,7 +246,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ButtonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -254,7 +255,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(ButtonCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(ButtonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addGap(118, 118, 118))
@@ -282,6 +283,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
     private javax.swing.JButton ButtonComprar;
+    private javax.swing.JButton ButtonModificar;
     private javax.swing.JComboBox ComboBoxProveedor;
     private javax.swing.JLabel LabelCantidad;
     private javax.swing.JLabel LabelCodBarras;
@@ -294,7 +296,6 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldCodBarras;
     private javax.swing.JTextField TextFieldCodBarras1;
     private javax.swing.JTextField TextFieldDescripcion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
