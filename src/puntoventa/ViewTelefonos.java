@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hugo
@@ -15,9 +17,10 @@ public class ViewTelefonos extends javax.swing.JFrame {
      */
     public ViewTelefonos(String cedula) {
         initComponents();
-        
+        TextFieldCedula.setVisible(false);
+        TextFieldCedula.setText(cedula);
         Conexion manager = new Conexion();
-        String queryTelefonos = "select Num_Tel, provincia, canton, distrito, senas from persona natural join proveedor natural join direccion natural join telefono where ID_TEL = ID_Direcc and where cedula = '"+cedula+"';";
+        String queryTelefonos = "select Num_Tel, provincia, canton, distrito, senas from telefono where cedula = '"+cedula+"';";
         manager.llenarTabla(queryTelefonos, TableTelefonos);
     }
 
@@ -34,6 +37,9 @@ public class ViewTelefonos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TableTelefonos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        ButtonEliminar = new javax.swing.JButton();
+        TextFieldCedula = new javax.swing.JTextField();
+        ButtonModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,14 +71,26 @@ public class ViewTelefonos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TableTelefonos.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(TableTelefonos);
-        TableTelefonos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jButton1.setText("Cerrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        ButtonEliminar.setText("Eliminar");
+        ButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEliminarActionPerformed(evt);
+            }
+        });
+
+        ButtonModificar.setText("Modificar");
+        ButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonModificarActionPerformed(evt);
             }
         });
 
@@ -84,26 +102,39 @@ public class ViewTelefonos extends javax.swing.JFrame {
                 .add(29, 29, 29)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createSequentialGroup()
-                        .add(jButton1)
-                        .addContainerGap(537, Short.MAX_VALUE))
-                    .add(layout.createSequentialGroup()
                         .add(0, 0, Short.MAX_VALUE)
                         .add(jLabel1)
-                        .add(301, 301, 301))
-                    .add(layout.createSequentialGroup()
-                        .add(jScrollPane1)
-                        .addContainerGap())))
+                        .add(199, 199, 199)
+                        .add(TextFieldCedula, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(114, 114, 114)
+                        .add(jButton1))
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 542, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 18, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(ButtonEliminar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(ButtonModificar, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(16, 16, 16)
-                .add(jLabel1)
-                .add(18, 18, 18)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jButton1)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(12, 12, 12)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(TextFieldCedula, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jButton1))
+                    .add(jLabel1))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createSequentialGroup()
+                        .add(18, 18, 18)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(layout.createSequentialGroup()
+                        .add(35, 35, 35)
+                        .add(ButtonModificar)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(ButtonEliminar)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,12 +144,51 @@ public class ViewTelefonos extends javax.swing.JFrame {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
+        int row = TableTelefonos.getSelectedRow();
+        String cedula = TextFieldCedula.getText();
+        String Telefono = TableTelefonos.getValueAt(row, 0).toString();
+        String Provincia = TableTelefonos.getValueAt(row, 1).toString();
+        String Canton = TableTelefonos.getValueAt(row, 2).toString();
+        String Distrito = TableTelefonos.getValueAt(row, 3).toString();
+        String Senas = TableTelefonos.getValueAt(row, 4).toString();
+        
+        Conexion manager = new Conexion();
+        String queryEliminarTelefono = "delete from telefono where num_tel ='"+Telefono+"' and provincia ='"+Provincia+"' and canton ='"+Canton+"' and distrito='"+Distrito+"' and senas ='"+Senas+"';";
+        boolean exito = manager.consulta(queryEliminarTelefono);
+        
+        
+        String queryTelefonos = "select Num_Tel, provincia, canton, distrito, senas from telefono where cedula = '"+cedula+"';";
+        manager.llenarTabla(queryTelefonos, TableTelefonos);
+        
+    }//GEN-LAST:event_ButtonEliminarActionPerformed
+
+    private void ButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarActionPerformed
+        int row = TableTelefonos.getSelectedRow();
+        String cedula = TextFieldCedula.getText();
+        String provincia = TableTelefonos.getValueAt(row, 1).toString();
+        String canton = TableTelefonos.getValueAt(row, 2).toString();
+        String distrito = TableTelefonos.getValueAt(row, 3).toString();
+        String senas = TableTelefonos.getValueAt(row, 4).toString();
+        
+        String telefono = JOptionPane.showInputDialog ( "Numero de telefono Nuevo" ); 
+        String insertTelefono = "update telefono set num_tel='"+telefono+"'  where cedula='"+cedula+"' and provincia='"+provincia+"' and canton='"+canton+"' and distrito='"+distrito+"' and senas='"+senas+"';";
+        Conexion manager = new Conexion();
+        manager.consulta(insertTelefono);
+        
+        String queryTelefonos = "select Num_Tel, provincia, canton, distrito, senas from telefono where cedula = '"+cedula+"';";
+        manager.llenarTabla(queryTelefonos, TableTelefonos);
+    }//GEN-LAST:event_ButtonModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonEliminar;
+    private javax.swing.JButton ButtonModificar;
     private javax.swing.JTable TableTelefonos;
+    private javax.swing.JTextField TextFieldCedula;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

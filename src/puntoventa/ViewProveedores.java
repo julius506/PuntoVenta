@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Julian
@@ -15,6 +17,7 @@ public class ViewProveedores extends javax.swing.JFrame {
      */
     public ViewProveedores() {
         initComponents();
+        ButtonModificar.setVisible(false);
         Conexion manager = new Conexion();
         String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
         manager.llenarTabla(queryProveedores, TableProveedores);
@@ -40,9 +43,9 @@ public class ViewProveedores extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TableProveedores = new javax.swing.JTable();
         ButtonAgregarDireccion = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        ButtonModificar = new javax.swing.JButton();
+        ButtonEliminar = new javax.swing.JButton();
+        AgregarTelefono = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +90,7 @@ public class ViewProveedores extends javax.swing.JFrame {
                 java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,19 +111,24 @@ public class ViewProveedores extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Modificar");
-
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ButtonModificar.setText("Modificar");
+        ButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ButtonModificarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Telefonos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ButtonEliminar.setText("Eliminar");
+        ButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ButtonEliminarActionPerformed(evt);
+            }
+        });
+
+        AgregarTelefono.setText("Telefonos");
+        AgregarTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarTelefonoActionPerformed(evt);
             }
         });
 
@@ -142,7 +150,7 @@ public class ViewProveedores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ButtonAgregarNuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(AgregarTelefono)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ButtonAgregarDireccion))
                     .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,8 +159,8 @@ public class ViewProveedores extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ButtonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ButtonModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -174,11 +182,11 @@ public class ViewProveedores extends javax.swing.JFrame {
                     .addComponent(ButtonBuscar)
                     .addComponent(ButtonAgregarNuevo)
                     .addComponent(ButtonAgregarDireccion)
-                    .addComponent(jButton3))
+                    .addComponent(AgregarTelefono))
                 .addGap(52, 52, 52)
-                .addComponent(jButton1)
+                .addComponent(ButtonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(ButtonEliminar)
                 .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -207,6 +215,9 @@ public class ViewProveedores extends javax.swing.JFrame {
 
     private void ButtonAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarNuevoActionPerformed
         new ViewAgregarProveedor().setVisible(true);
+        Conexion manager = new Conexion();
+        String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
+        manager.llenarTabla(queryProveedores, TableProveedores);
     }//GEN-LAST:event_ButtonAgregarNuevoActionPerformed
 
     private void ButtonAgregarDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarDireccionActionPerformed
@@ -216,16 +227,29 @@ public class ViewProveedores extends javax.swing.JFrame {
         new ViewDireccion(cedula).setVisible(true);
     }//GEN-LAST:event_ButtonAgregarDireccionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
         int row = TableProveedores.getSelectedRow();
         int column = 0;
         String cedula = TableProveedores.getValueAt(row, column).toString();
-        new ViewTelefonos(cedula).setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+        Conexion manager = new Conexion();
+        String queryEliminarProveedores = "delete from proveedor where cedula ='"+cedula+"';";
+        
+        boolean exito = manager.consulta(queryEliminarProveedores);
+        if(exito) {
+            String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
+            manager.llenarTabla(queryProveedores, TableProveedores);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar proveedor", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ButtonEliminarActionPerformed
+
+    private void AgregarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarTelefonoActionPerformed
+        int row = TableProveedores.getSelectedRow();
+        int column = 0;
+        String cedula = TableProveedores.getValueAt(row, column).toString();
+        new ViewTelefonos(cedula).setVisible(true);
+    }//GEN-LAST:event_AgregarTelefonoActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
         String cedula = TextFieldCedula.getText();
@@ -240,6 +264,14 @@ public class ViewProveedores extends javax.swing.JFrame {
         Conexion manager = new Conexion();
         manager.llenarTabla(selectProveedores, TableProveedores);
     }//GEN-LAST:event_ButtonBuscarActionPerformed
+
+    private void ButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarActionPerformed
+        int row = TableProveedores.getSelectedRow();
+        //int column = 0;
+        String cedula = TableProveedores.getValueAt(row, 0).toString();
+        new ViewAgregarProveedor(cedula).setVisible(true);
+        
+    }//GEN-LAST:event_ButtonModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,18 +308,18 @@ public class ViewProveedores extends javax.swing.JFrame {
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarTelefono;
     private javax.swing.JButton ButtonAgregarDireccion;
     private javax.swing.JButton ButtonAgregarNuevo;
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
+    private javax.swing.JButton ButtonEliminar;
+    private javax.swing.JButton ButtonModificar;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelNombre;
     private javax.swing.JTable TableProveedores;
     private javax.swing.JTextField TextFieldCedula;
     private javax.swing.JTextField TextFieldNombre;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

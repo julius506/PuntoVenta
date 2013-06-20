@@ -17,6 +17,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
      */
     public ViewAgregarProveedor() {
         initComponents();
+        ButtonModificar.setVisible(false);
         String [] tipoCedula = new String[4];
         tipoCedula[0] = "Fisica";
         tipoCedula[1] = "Juridica";
@@ -39,6 +40,84 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         String queryDistrito = "select distinct distrito from lugar where canton='"+ComboBoxCanton.getSelectedItem().toString()+"' order by distrito ASC;";
         manager.llenarCombobox(queryDistrito, ComboBoxDistrito);
         
+  
+    }
+    
+    public ViewAgregarProveedor(String cedula) {
+        //esto es para el boton modificar, todavia no funciona
+        
+        
+        initComponents();
+        ButtonAgregar1.setVisible(false);
+        String [] tipoCedula = new String[4];
+        tipoCedula[0] = "Fisica";
+        tipoCedula[1] = "Juridica";
+        tipoCedula[2] = "Residente";
+        tipoCedula[3] = "Pasaporte";
+        ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(tipoCedula));
+        
+        String queryProvincia = "select distinct provincia from lugar order by provincia ASC;";
+        
+        ComboBoxProvincia.removeAllItems();
+        ComboBoxCanton.removeAllItems();
+        ComboBoxDistrito.removeAllItems();
+        
+        Conexion manager = new Conexion();
+        manager.llenarCombobox(queryProvincia, ComboBoxProvincia);
+        
+        String queryCanton = "select distinct canton from lugar where provincia='"+ComboBoxProvincia.getSelectedItem().toString()+"' order by canton ASC;";
+        manager.llenarCombobox(queryCanton, ComboBoxCanton);
+        
+        String queryDistrito = "select distinct distrito from lugar where canton='"+ComboBoxCanton.getSelectedItem().toString()+"' order by distrito ASC;";
+        manager.llenarCombobox(queryDistrito, ComboBoxDistrito);
+        
+        
+        
+        
+        String queryNombre = "select nombre from proveedor where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryNombre);
+        TextFieldNombre.setText( manager.getHileraResultado() );
+        
+        String queryApellido1 = "select apellido1 from proveedor where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryApellido1);
+        TextFieldApellido1.setText( manager.getHileraResultado() );
+        
+        String queryApellido2 = "select apellido2 from proveedor where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryApellido2);
+        TextFieldApellido2.setText( manager.getHileraResultado() );
+        
+//        String selectqueryProvincia = "select provincia from direccion where cedula = '"+cedula+"';";
+//        manager.consultaInsert(selectqueryProvincia);
+//        TextFieldApellido2.setText( manager.getHileraResultado() );
+//        ComboBoxProvincia.setModel( manager.getHileraResultado() )
+//        
+//        String selectqueryCanton = "select canton from direccion where cedula = '"+cedula+"';";
+//        manager.consultaInsert(selectqueryCanton);
+//        TextFieldApellido2.setText( manager.getHileraResultado() );
+//        
+//        String selectqueryDistrito = "select distrito from direccion where cedula = '"+cedula+"';";
+//        manager.consultaInsert(selectqueryDistrito);
+//        TextFieldApellido2.setText( manager.getHileraResultado() );
+        
+        String queryDireccion = "select nombre from direccion where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryDireccion);
+        TextFieldDireccion.setText( manager.getHileraResultado() );
+        
+        String queryDescuento = "select nombre from proveedor where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryDescuento);
+        TextFieldDescuento.setText( manager.getHileraResultado() );
+        
+        String queryTelefono = "select telefono from telefono where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryTelefono);
+        TextFieldTelefono.setText( manager.getHileraResultado() );
+        
+        String queryEmail = "select email from proveedor where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryDescuento);
+        TextFieldEmail.setText( manager.getHileraResultado() );
+        
+        String queryContacto = "select contacto from telefono where cedula = '"+cedula+"';";
+        manager.consultaInsert(queryTelefono);
+        TextFieldContacto.setText( manager.getHileraResultado() );
   
     }
 
@@ -83,10 +162,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         TextFieldEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         TextFieldContacto = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        TextFieldTipoTelefono = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        TextFieldTipoDireccion = new javax.swing.JTextField();
+        ButtonModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,16 +273,6 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
 
         jLabel12.setText("Contacto");
 
-        jLabel13.setText("Tipo Telefono");
-
-        TextFieldTipoTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldTipoTelefonoActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setText("Tipo Direccion");
-
         javax.swing.GroupLayout PanelNoJuridicoLayout = new javax.swing.GroupLayout(PanelNoJuridico);
         PanelNoJuridico.setLayout(PanelNoJuridicoLayout);
         PanelNoJuridicoLayout.setHorizontalGroup(
@@ -224,22 +290,18 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                        .addComponent(TextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
-                                .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                    .addComponent(TextFieldEmail))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel13)
-                                .addGap(18, 18, 18)
-                                .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextFieldTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                .addComponent(TextFieldEmail))
                             .addComponent(TextFieldContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 347, Short.MAX_VALUE))
+                    .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
+                        .addComponent(TextFieldDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(452, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelNoJuridicoLayout.createSequentialGroup()
-                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelNoJuridicoLayout.createSequentialGroup()
                                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ComboBoxProvincia, 0, 111, Short.MAX_VALUE)
@@ -253,18 +315,15 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(TextFieldApellido1)
-                                    .addComponent(ComboBoxCanton, 0, 130, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ComboBoxCanton, 0, 130, Short.MAX_VALUE))))
+                        .addGap(13, 13, 13)
                         .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextFieldApellido2)
-                            .addComponent(ComboBoxDistrito, 0, 136, Short.MAX_VALUE)
-                            .addComponent(TextFieldTipoDireccion)))))
+                            .addComponent(ComboBoxDistrito, 0, 136, Short.MAX_VALUE)))))
         );
         PanelNoJuridicoLayout.setVerticalGroup(
             PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,13 +344,10 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                     .addComponent(ComboBoxDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(14, 14, 14)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(TextFieldTipoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5))
                 .addGap(8, 8, 8)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -299,9 +355,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(TextFieldTipoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelNoJuridicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -313,6 +367,13 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        ButtonModificar.setText("Modificar");
+        ButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonModificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -321,7 +382,9 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(ButtonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -365,8 +428,10 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(PanelNoJuridico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonAgregar1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonAgregar1)
+                    .addComponent(ButtonModificar))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,22 +458,24 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         String canton = ComboBoxCanton.getSelectedItem().toString();
         String distrito = ComboBoxDistrito.getSelectedItem().toString();
         String direccion = TextFieldDireccion.getText();
-        String TipoDireccion = TextFieldTipoDireccion.getText();
         String descuento = TextFieldDescuento.getText();
         String telefono = TextFieldTelefono.getText();
-        String TipoTelefono = TextFieldTipoTelefono.getText();
         String email = TextFieldEmail.getText();
         String contacto = TextFieldContacto.getText();
         
-        String insertPersona = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
-        String insertProovedor = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', "+descuento+", '"+email+"', '"+contacto+"', CURRENT_TIMESTAMP);";
-        String insertTelefono = "insert into telefono values('"+cedula+"', '"+TipoTelefono+"', '"+telefono+"');";
-        String insertDireccion = "insert into direccion values('"+cedula+"', '"+TipoDireccion+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
-        String sqlQuery = insertPersona+insertProovedor+insertTelefono+insertDireccion;
         Conexion manager = new Conexion();
+        String insertPersona = "insert into persona values('"+cedula+"', '"+TipoCedula+"');";
+        boolean exito0 = manager.consultaInsert(insertPersona);
+        
+        String insertProovedor = "insert into proveedor values('"+cedula+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', "+descuento+", '"+email+"', '"+contacto+"', CURRENT_TIMESTAMP);";
+        String insertDireccion = "insert into direccion values('"+cedula+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
+        String insertTelefono = "insert into telefono values('"+cedula+"', '"+telefono+"', '"+provincia+"', '"+canton+"', '"+distrito+"', '"+direccion+"');";
+        String sqlQuery = insertProovedor+insertDireccion+insertTelefono;
+        
         boolean exito = manager.consultaInsert(sqlQuery);
         String resultado = manager.getHileraResultado();
-
+        
+        
         //System.out.println(resultado);
         if(resultado.equals("exito")){
             JOptionPane.showMessageDialog(null, "Proveedor agregado", "Exito", JOptionPane.INFORMATION_MESSAGE);
@@ -467,9 +534,27 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ComboBoxCantonActionPerformed
 
-    private void TextFieldTipoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTipoTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldTipoTelefonoActionPerformed
+    private void ButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarActionPerformed
+        
+        
+//        String nombre = TableProveedores.getValueAt(row, 2).toString();
+//        String apellido1 = TableProveedores.getValueAt(row, 3).toString();
+//        String apellido2 = TableProveedores.getValueAt(row, 4).toString();
+//        int descuento = (int) TableProveedores.getValueAt(row, 5);
+//        String contacto = TableProveedores.getValueAt(row, 6).toString();
+//        String email = TableProveedores.getValueAt(row, 7).toString();
+//        
+//        Conexion manager = new Conexion();
+//        String queryModProveedores = "update proveedor set nombre ='"+nombre+"', apellido1 = '"+apellido1+"', apellido2 = '"+apellido2+"', descuento = '"+descuento+"', contacto = '"+contacto+"', email = '"+email+"' where cedula='"+cedula+"';";
+//        
+//        boolean exito = manager.consulta(queryModProveedores);
+//        if(exito) {
+//            String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
+//            manager.llenarTabla(queryProveedores, TableProveedores);
+//        }else{
+//            JOptionPane.showMessageDialog(null, "No se pudo modificar proveedor", "Alerta", JOptionPane.ERROR_MESSAGE);
+//        }
+    }//GEN-LAST:event_ButtonModificarActionPerformed
     
     /**
      * @param args the command line arguments
@@ -478,6 +563,7 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAgregar1;
     private javax.swing.JButton ButtonCancelar1;
+    private javax.swing.JButton ButtonModificar;
     private javax.swing.JComboBox ComboBoxCanton;
     private javax.swing.JComboBox ComboBoxDistrito;
     private javax.swing.JComboBox ComboBoxProvincia;
@@ -493,14 +579,10 @@ public class ViewAgregarProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldEmail;
     private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JTextField TextFieldTelefono;
-    private javax.swing.JTextField TextFieldTipoDireccion;
-    private javax.swing.JTextField TextFieldTipoTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
