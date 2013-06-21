@@ -15,8 +15,23 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
      */
     public ViewAdminAlmacenComprarProductos(String cedula) {
         initComponents();
-        LabelNumCedula.setVisible(false);
+        LabelProductosFacturados.setVisible(false);
         ButtonModificar.setVisible(false);
+        ButtonEliminar.setVisible(false);
+        LabelNumCedula.setVisible(false);
+        LabelNumCedula.setText(cedula);
+
+        LabelProveedor.setVisible(false);
+        
+        TextFieldCodBarrasAgregar.setText("");
+        ComboBoxProveedor.removeAllItems();
+        Conexion manager = new Conexion();
+        
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableInventario);
+        
+        String query = "select distinct nombre from proveedor order by nombre ASC;";
+        manager.llenarCombobox(query, ComboBoxProveedor);
     }
 
     /**
@@ -36,21 +51,24 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         TextFieldDescripcion = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         ScrollPaneBuscar = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableInventario = new javax.swing.JTable();
         ComboBoxProveedor = new javax.swing.JComboBox();
         LabelCodBarras1 = new javax.swing.JLabel();
-        TextFieldCodBarras1 = new javax.swing.JTextField();
+        TextFieldCodBarrasAgregar = new javax.swing.JTextField();
         LabelCantidad = new javax.swing.JLabel();
         TextFieldCantidad = new javax.swing.JTextField();
         ButtonAgregar = new javax.swing.JButton();
         ScrollPaneBuscar1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablePedido = new javax.swing.JTable();
         LabelProveedor = new javax.swing.JLabel();
         LabelNumCedula = new javax.swing.JLabel();
+        LabelProductosFacturados = new javax.swing.JLabel();
         ButtonComprar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        LabelTotal = new javax.swing.JLabel();
         ButtonCancelar = new javax.swing.JButton();
         ButtonModificar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ButtonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,27 +77,32 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         LabelDescripcion.setText("Descripcion");
 
         ButtonBuscar.setText("Buscar");
+        ButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBuscarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableInventario.setAutoCreateRowSorter(true);
+        TableInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad", "Proveedor"
+                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Medida", "Precio Costo", "Precio1", "Precio2", "Precio3", "Proveedor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -90,8 +113,8 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        ScrollPaneBuscar.setViewportView(jTable1);
+        TableInventario.getTableHeader().setReorderingAllowed(false);
+        ScrollPaneBuscar.setViewportView(TableInventario);
 
         ComboBoxProveedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -102,27 +125,32 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         TextFieldCantidad.setText("1");
 
         ButtonAgregar.setText("Agregar");
+        ButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarActionPerformed(evt);
+            }
+        });
 
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablePedido.setAutoCreateRowSorter(true);
+        TablePedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cant. Min.", "Cant. Actual", "Precio Costo", "Precio Venta", "Utilidad", "Proveedor"
+                "Codigo", "Descripcion", "Cantidad", "Precio Costo", "Proveedor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,8 +161,8 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        ScrollPaneBuscar1.setViewportView(jTable2);
+        TablePedido.getTableHeader().setReorderingAllowed(false);
+        ScrollPaneBuscar1.setViewportView(TablePedido);
 
         LabelProveedor.setText("Proveedor");
 
@@ -157,11 +185,13 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                                 .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ComboBoxProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(ComboBoxProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelProductosFacturados))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(LabelCodBarras1)
                         .addGap(18, 18, 18)
-                        .addComponent(TextFieldCodBarras1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextFieldCodBarrasAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabelCantidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,7 +217,8 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelDescripcion)
                     .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonBuscar))
+                    .addComponent(ButtonBuscar)
+                    .addComponent(LabelProductosFacturados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboBoxProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,7 +228,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCodBarras1)
-                    .addComponent(TextFieldCodBarras1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextFieldCodBarrasAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelCantidad)
                     .addComponent(TextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonAgregar))
@@ -217,6 +248,10 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Total");
+
+        LabelTotal.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -225,15 +260,23 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(ButtonComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addGap(72, 72, 72)
+                    .addComponent(LabelTotal))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(LabelTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonComprar)
                 .addContainerGap())
         );
@@ -247,7 +290,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
 
         ButtonModificar.setText("Modificar");
 
-        jButton2.setText("Eliminar");
+        ButtonEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,7 +302,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ButtonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ButtonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +312,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(ButtonEliminar)
                 .addGap(118, 118, 118))
         );
 
@@ -286,6 +329,68 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ButtonComprarActionPerformed
 
+    private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
+        String codigo = TextFieldCodBarras.getText();
+        String descripcion = TextFieldDescripcion.getText();
+        String selectInventario = "";
+        if(descripcion.equals("")){
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto where cod='"+codigo+"';";
+        }else{
+            selectInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto where cod='"+codigo+"' or descripcion like '%"+descripcion+"%' ;";
+        }
+        
+        Conexion manager = new Conexion();
+        manager.llenarTabla(selectInventario, TableInventario);
+    }//GEN-LAST:event_ButtonBuscarActionPerformed
+    private void Refresh(){
+        TextFieldCodBarrasAgregar.setText("");
+        Conexion manager = new Conexion();
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableInventario);
+        
+        String ProductosFacturados = LabelProductosFacturados.getText();
+        String query = "select * from ("+ProductosFacturados+") as A;"; //ejecuta el nuevo query
+        manager.llenarTabla(query, TablePedido);
+        
+        
+        int num_rows = (int) TablePedido.getRowCount();
+        double subtotal = 0.0;
+        for(int i=0;i<num_rows;i++){
+            int cantidad= Integer.parseInt( TablePedido.getValueAt(i,2).toString() );
+            double valor = Double.parseDouble( TablePedido.getValueAt(i,3).toString() );
+            subtotal = subtotal + cantidad* (int) valor;
+        }
+        LabelTotal.setText( Double.toString(subtotal));
+    }
+    private void ButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
+        int row = TableInventario.getSelectedRow();
+        int column = 0;
+        String codigo = TextFieldCodBarrasAgregar.getText();
+        String cantidad = TextFieldCantidad.getText();
+        
+        if((TextFieldCodBarrasAgregar.getText()).equals("")){
+            codigo = TableInventario.getValueAt(row, column).toString();
+        }
+        
+        
+        
+        Conexion manager = new Conexion();
+        
+        String ProductosFacturados = LabelProductosFacturados.getText();
+   
+        if( ProductosFacturados.contains("select") ){ //si ya hay productos facturados agrega un union
+            ProductosFacturados = ProductosFacturados+" UNION ";
+        }
+        String Proveedor = ComboBoxProveedor.getSelectedItem().toString();
+        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '"+cantidad+"' as Cantidad, costo as Precio, '"+Proveedor+"' as Proveedor from producto where cod='"+codigo+"'"; //query de nuevo producto
+        ProductosFacturados = ProductosFacturados+queryProducto; //agregar query de nuevo producto
+        LabelProductosFacturados.setText(ProductosFacturados); //almacena nuevo query
+        String query = "select * from ("+ProductosFacturados+") as A;"; //ejecuta el nuevo query
+        
+        manager.llenarTabla(query, TablePedido);
+        this.Refresh();
+    }//GEN-LAST:event_ButtonAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,6 +400,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
     private javax.swing.JButton ButtonComprar;
+    private javax.swing.JButton ButtonEliminar;
     private javax.swing.JButton ButtonModificar;
     private javax.swing.JComboBox ComboBoxProveedor;
     private javax.swing.JLabel LabelCantidad;
@@ -302,17 +408,19 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCodBarras1;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelNumCedula;
+    private javax.swing.JLabel LabelProductosFacturados;
     private javax.swing.JLabel LabelProveedor;
+    private javax.swing.JLabel LabelTotal;
     private javax.swing.JScrollPane ScrollPaneBuscar;
     private javax.swing.JScrollPane ScrollPaneBuscar1;
+    private javax.swing.JTable TableInventario;
+    private javax.swing.JTable TablePedido;
     private javax.swing.JTextField TextFieldCantidad;
     private javax.swing.JTextField TextFieldCodBarras;
-    private javax.swing.JTextField TextFieldCodBarras1;
+    private javax.swing.JTextField TextFieldCodBarrasAgregar;
     private javax.swing.JTextField TextFieldDescripcion;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

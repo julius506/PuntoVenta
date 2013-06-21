@@ -29,7 +29,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="ButtonCancelar" max="32767" attributes="0"/>
                   <Component id="ButtonModificar" max="32767" attributes="0"/>
-                  <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="ButtonEliminar" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -42,7 +42,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="ButtonModificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="ButtonEliminar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -59,9 +59,14 @@
                   <Component id="ButtonComprar" min="-2" pref="132" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="LabelTotal" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -69,7 +74,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="ButtonComprar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -101,11 +111,13 @@
                                   </Group>
                                   <Component id="ComboBoxProveedor" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LabelProductosFacturados" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="LabelCodBarras1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="TextFieldCodBarras1" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="TextFieldCodBarrasAgregar" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="LabelCantidad" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -139,6 +151,7 @@
                           <Component id="LabelDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TextFieldDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelProductosFacturados" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -150,7 +163,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="LabelCodBarras1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextFieldCodBarras1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextFieldCodBarrasAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TextFieldCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -187,28 +200,43 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonBuscarActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="ScrollPaneBuscar">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="TableInventario">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="7">
+                      <Table columnCount="10" rowCount="7">
                         <Column editable="false" title="Codigo" type="java.lang.Long"/>
                         <Column editable="false" title="Descripcion" type="java.lang.String"/>
                         <Column editable="false" title="Cant. Min." type="java.lang.Integer"/>
                         <Column editable="false" title="Cant. Actual" type="java.lang.Integer"/>
+                        <Column editable="false" title="Medida" type="java.lang.String"/>
                         <Column editable="false" title="Precio Costo" type="java.lang.Long"/>
-                        <Column editable="false" title="Precio Venta" type="java.lang.Long"/>
-                        <Column editable="false" title="Utilidad" type="java.lang.Long"/>
+                        <Column editable="false" title="Precio1" type="java.lang.Long"/>
+                        <Column editable="false" title="Precio2" type="java.lang.Long"/>
+                        <Column editable="false" title="Precio3" type="java.lang.Long"/>
                         <Column editable="false" title="Proveedor" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -275,7 +303,7 @@
                 <Property name="text" type="java.lang.String" value="Codigo Barras"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldCodBarras1">
+            <Component class="javax.swing.JTextField" name="TextFieldCodBarrasAgregar">
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCantidad">
               <Properties>
@@ -291,43 +319,28 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAgregarActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="ScrollPaneBuscar1">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="TablePedido">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="7">
+                      <Table columnCount="5" rowCount="7">
                         <Column editable="false" title="Codigo" type="java.lang.Long"/>
                         <Column editable="false" title="Descripcion" type="java.lang.String"/>
-                        <Column editable="false" title="Cant. Min." type="java.lang.Integer"/>
-                        <Column editable="false" title="Cant. Actual" type="java.lang.Integer"/>
+                        <Column editable="false" title="Cantidad" type="java.lang.Integer"/>
                         <Column editable="false" title="Precio Costo" type="java.lang.Long"/>
-                        <Column editable="false" title="Precio Venta" type="java.lang.Long"/>
-                        <Column editable="false" title="Utilidad" type="java.lang.Long"/>
                         <Column editable="false" title="Proveedor" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -369,6 +382,8 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNumCedula">
             </Component>
+            <Component class="javax.swing.JLabel" name="LabelProductosFacturados">
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="ButtonComprar">
@@ -378,6 +393,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonComprarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelTotal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -394,7 +419,7 @@
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="ButtonEliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
