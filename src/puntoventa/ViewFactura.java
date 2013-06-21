@@ -77,6 +77,8 @@ public class ViewFactura extends javax.swing.JFrame {
         LabelProductosFacturados = new javax.swing.JLabel();
         LabelProductosEliminados = new javax.swing.JLabel();
         ButtonRefrescar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        TextFieldCantidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -319,6 +321,10 @@ public class ViewFactura extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Cantidad");
+
+        TextFieldCantidad.setText("1");
+
         javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
         PanelMain.setLayout(PanelMainLayout);
         PanelMainLayout.setHorizontalGroup(
@@ -339,14 +345,20 @@ public class ViewFactura extends javax.swing.JFrame {
                                     .addComponent(TextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                     .addComponent(FieldCodBarras))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ButtonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBoxTipoCedula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ComboBoxTipoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(PanelMainLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(TextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PanelMainLayout.createSequentialGroup()
+                                        .addGap(0, 65, Short.MAX_VALUE)
+                                        .addComponent(ButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(113, 113, 113)
                                         .addComponent(ButtonCancelar))
                                     .addGroup(PanelMainLayout.createSequentialGroup()
                                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +387,9 @@ public class ViewFactura extends javax.swing.JFrame {
                             .addComponent(LabelCodBarras)
                             .addComponent(FieldCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ButtonAgregar)
-                            .addComponent(ButtonBuscar))
+                            .addComponent(ButtonBuscar)
+                            .addComponent(jLabel1)
+                            .addComponent(TextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,11 +550,11 @@ public class ViewFactura extends javax.swing.JFrame {
         
         String ProductosFacturados = LabelProductosFacturados.getText();
         String codigo = FieldCodBarras.getText();
-   
+        String cantidad = TextFieldCantidad.getText();
         if( ProductosFacturados.contains("select") ){ //si ya hay productos facturados agrega un union
             ProductosFacturados = ProductosFacturados+" UNION ";
         }
-        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '1' as Cantidad, precio1 as Precio from producto where cod='"+codigo+"'"; //query de nuevo producto
+        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '"+cantidad+"' as Cantidad, precio1 as Precio from producto where cod='"+codigo+"'"; //query de nuevo producto
         ProductosFacturados = ProductosFacturados+queryProducto; //agregar query de nuevo producto
         LabelProductosFacturados.setText(ProductosFacturados); //almacena nuevo query
         String query = "select * from ("+ProductosFacturados+") as A;"; //ejecuta el nuevo query
@@ -578,6 +592,8 @@ public class ViewFactura extends javax.swing.JFrame {
             LabelValueDescuento.setText( desc );
             descuento = Double.parseDouble(desc);
         }
+        
+        
         
         //recalculo subtotal
         int num_rows = (int) TableProductos.getRowCount();
@@ -696,9 +712,11 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMain;
     private javax.swing.JPanel PanelTable;
     private javax.swing.JTable TableProductos;
+    private javax.swing.JTextField TextFieldCantidad;
     private javax.swing.JTextField TextFieldCedulaCliente;
     private javax.swing.JTextField TextFieldCodigoDescuento;
     private javax.swing.JTextField TextFieldNombre;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
