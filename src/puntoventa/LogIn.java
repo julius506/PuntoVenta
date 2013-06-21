@@ -127,15 +127,15 @@ public class LogIn extends javax.swing.JFrame {
             usr = usr.replaceAll("\\W","");
             //System.out.println(usr);
             if(usr.equals("Cajero")){
-                new ViewCajeroMenuPrincipal(usr).setVisible(true);
+                new ViewCajeroMenuPrincipal( TextFieldUsername.getText() ).setVisible(true);
                 this.dispose();
             }else{
                 if(usr.equals("Sucursal")){
-                    new ViewCajeroMenuPrincipal(usr).setVisible(true);
+                    new ViewCajeroMenuPrincipal( TextFieldUsername.getText() ).setVisible(true);
                     this.dispose();
                 }else{
                     if(usr.equals("Almacen")){
-                       new ViewAdminAlmacenMenuPrincipal(usr).setVisible(true);
+                       new ViewAdminAlmacenMenuPrincipal( TextFieldUsername.getText() ).setVisible(true);
                        this.dispose();
                     }else{
                         JOptionPane.showMessageDialog(null, "Usuario o contraseña no validos", "Alerta", JOptionPane.ERROR_MESSAGE);
