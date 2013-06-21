@@ -13,8 +13,10 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
     /**
      * Creates new form ViewAdminSucursalSolicitarProductos
      */
-    public ViewAdminAlmacenSolicitarProductos() {
+    public ViewAdminAlmacenSolicitarProductos(String cedula) {
         initComponents();
+        LabelNumCedula.setVisible(false);
+        LabelNumCedula.setText(cedula);
         Conexion manager = new Conexion();
         
         String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
@@ -48,6 +50,7 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         ScrollPaneBuscar1 = new javax.swing.JScrollPane();
         TablePedido = new javax.swing.JTable();
         LabelSucursal = new javax.swing.JLabel();
+        LabelNumCedula = new javax.swing.JLabel();
         ButtonEnviarSolicitud = new javax.swing.JButton();
         ButtonCancelar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -171,7 +174,9 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
                                         .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ComboBoxSucursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(ComboBoxSucursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(LabelNumCedula))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(LabelCodBarras1)
                                 .addGap(18, 18, 18)
@@ -197,7 +202,8 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelDescripcion)
                     .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonBuscar))
+                    .addComponent(ButtonBuscar)
+                    .addComponent(LabelNumCedula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboBoxSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,7 +290,7 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonEnviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnviarSolicitudActionPerformed
-        new ViewAdminAlmacenMenuPrincipal().setVisible(true);
+        new ViewAdminAlmacenMenuPrincipal( LabelNumCedula.getText() ).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonEnviarSolicitudActionPerformed
 
@@ -321,6 +327,7 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelCodBarras1;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JLabel LabelNumCedula;
     private javax.swing.JLabel LabelSucursal;
     private javax.swing.JScrollPane ScrollPaneBuscar;
     private javax.swing.JScrollPane ScrollPaneBuscar1;

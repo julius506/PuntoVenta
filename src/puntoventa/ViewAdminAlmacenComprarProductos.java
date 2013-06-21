@@ -13,8 +13,9 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     /**
      * Creates new form ViewAdminSucursalSolicitarProductos
      */
-    public ViewAdminAlmacenComprarProductos() {
+    public ViewAdminAlmacenComprarProductos(String cedula) {
         initComponents();
+        LabelNumCedula.setVisible(false);
         ButtonModificar.setVisible(false);
     }
 
@@ -45,6 +46,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         ScrollPaneBuscar1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         LabelProveedor = new javax.swing.JLabel();
+        LabelNumCedula = new javax.swing.JLabel();
         ButtonComprar = new javax.swing.JButton();
         ButtonCancelar = new javax.swing.JButton();
         ButtonModificar = new javax.swing.JButton();
@@ -168,6 +170,11 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                         .addComponent(ButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ScrollPaneBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
                     .addComponent(ScrollPaneBuscar1)))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(432, 432, 432)
+                    .addComponent(LabelNumCedula)
+                    .addContainerGap(432, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,6 +203,11 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
                     .addComponent(ButtonAgregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ScrollPaneBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(226, 226, 226)
+                    .addComponent(LabelNumCedula)
+                    .addContainerGap(226, Short.MAX_VALUE)))
         );
 
         ButtonComprar.setText("Comprar");
@@ -270,7 +282,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonComprarActionPerformed
-        new ViewAdminAlmacenMenuPrincipal().setVisible(true);
+        new ViewAdminAlmacenMenuPrincipal( LabelNumCedula.getText() ).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonComprarActionPerformed
 
@@ -289,6 +301,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelCodBarras1;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JLabel LabelNumCedula;
     private javax.swing.JLabel LabelProveedor;
     private javax.swing.JScrollPane ScrollPaneBuscar;
     private javax.swing.JScrollPane ScrollPaneBuscar1;

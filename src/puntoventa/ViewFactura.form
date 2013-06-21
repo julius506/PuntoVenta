@@ -69,9 +69,17 @@
                               <Component id="ComboBoxTipoCedula" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonBuscar" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ButtonCancelar" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="ButtonBuscar" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="ButtonCancelar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -100,6 +108,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="FieldCodBarras2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ComboBoxTipoCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelNumCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="LabelCedulaCliente" max="32767" attributes="0"/>
                           </Group>
@@ -441,6 +450,8 @@
               </StringArray>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelNumCedula">
         </Component>
       </SubComponents>
     </Container>

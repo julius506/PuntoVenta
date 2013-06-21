@@ -13,8 +13,9 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form ViewCajeroMenuPrincipal
      */
-    public ViewAdminSucursalMenuPrincipal() {
+    public ViewAdminSucursalMenuPrincipal(String usr) {
         initComponents();
+        LabelNumCedula.setText(usr);
     }
 
     /**
@@ -27,8 +28,6 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelUsuario = new javax.swing.JLabel();
-        LabelNombreUsuario = new javax.swing.JLabel();
         LabelCedula = new javax.swing.JLabel();
         LabelNumCedula = new javax.swing.JLabel();
         ButtonLogOut = new javax.swing.JButton();
@@ -42,10 +41,6 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         ButtonEstadoCaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        LabelUsuario.setText("Usuario:");
-
-        LabelNombreUsuario.setText("Manuel Zuniga");
 
         LabelCedula.setText("Cedula");
 
@@ -125,13 +120,9 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelUsuario)
-                            .addComponent(LabelCedula))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelNumCedula)
-                            .addComponent(LabelNombreUsuario)))
+                        .addComponent(LabelCedula)
+                        .addGap(25, 25, 25)
+                        .addComponent(LabelNumCedula))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -151,11 +142,7 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(ButtonLogOut)
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelUsuario)
-                    .addComponent(LabelNombreUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCedula)
                     .addComponent(LabelNumCedula))
@@ -203,16 +190,16 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
         // Falta crear un if para que abra la caja automaticamente si no lo hicieron antes
-        new ViewFactura().setVisible(true);
+        new ViewFactura( LabelNumCedula.getText() ).setVisible(true);
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
     private void ButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInventarioActionPerformed
-        new ViewAdminSucursalInventario().setVisible(true);
+        new ViewAdminSucursalInventario( LabelNumCedula.getText() ).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonInventarioActionPerformed
 
     private void ButtonSolicitarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductosActionPerformed
-        new ViewAdminSucursalSolicitarProductos().setVisible(true);
+        new ViewAdminSucursalSolicitarProductos( LabelNumCedula.getText() ).setVisible(true);
     }//GEN-LAST:event_ButtonSolicitarProductosActionPerformed
 
     private void ButtonEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEmpleadosActionPerformed
@@ -244,9 +231,7 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JButton ButtonSolicitarProductos;
     private javax.swing.JLabel LabelCedula;
-    private javax.swing.JLabel LabelNombreUsuario;
     private javax.swing.JLabel LabelNumCedula;
-    private javax.swing.JLabel LabelUsuario;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

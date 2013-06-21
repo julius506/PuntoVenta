@@ -13,8 +13,10 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     /**
      * Creates new form ViewCajeroBuscarProducto
      */
-    public ViewAdminSucursalInventario() {
+    public ViewAdminSucursalInventario(String cedula) {
         initComponents();
+        LabelNumCedula.setVisible(false);
+        LabelNumCedula.setText(cedula);
         Conexion manager = new Conexion();
         
         String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
@@ -41,6 +43,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
         TableInventario = new javax.swing.JTable();
         ButtonAgregarProductoNuevo = new javax.swing.JButton();
         ButtonSolicitarProducto = new javax.swing.JButton();
+        LabelNumCedula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +137,8 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ButtonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonAgregarProductoNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(LabelNumCedula)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -149,7 +154,8 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelDescripcion)
                     .addComponent(TextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonBuscar))
+                    .addComponent(ButtonBuscar)
+                    .addComponent(LabelNumCedula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonAgregarProductoNuevo)
@@ -174,7 +180,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
-        new ViewAdminSucursalMenuPrincipal().setVisible(true);
+        new ViewAdminSucursalMenuPrincipal( LabelNumCedula.getText() ).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
@@ -197,7 +203,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAgregarProductoNuevoActionPerformed
 
     private void ButtonSolicitarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarProductoActionPerformed
-        new ViewAdminSucursalSolicitarProductos().setVisible(true);
+        new ViewAdminSucursalSolicitarProductos(LabelNumCedula.getText()).setVisible(true);
     }//GEN-LAST:event_ButtonSolicitarProductoActionPerformed
 
     /**
@@ -241,6 +247,7 @@ public class ViewAdminSucursalInventario extends javax.swing.JFrame {
     private javax.swing.JButton ButtonSolicitarProducto;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JLabel LabelNumCedula;
     private javax.swing.JTable TableInventario;
     private javax.swing.JTextField TextFieldCodBarras;
     private javax.swing.JTextField TextFieldDescripcion;

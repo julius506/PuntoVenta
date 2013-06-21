@@ -13,8 +13,10 @@ public class ViewFactura extends javax.swing.JFrame {
     /**
      * Creates new form ViewCajeroFactura
      */
-    public ViewFactura() {
+    public ViewFactura(String cedula) {
         initComponents();
+        LabelNumCedula.setVisible(false);
+        LabelNumCedula.setText(cedula);
         /*LabelSubtotal.setText("0");
         LabelValueTotal.setText("0");
         LabelValueImpuesto.setText("0");
@@ -61,6 +63,7 @@ public class ViewFactura extends javax.swing.JFrame {
         FieldCodBarras2 = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         ComboBoxTipoCedula = new javax.swing.JComboBox();
+        LabelNumCedula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -317,9 +320,14 @@ public class ViewFactura extends javax.swing.JFrame {
                             .addComponent(ButtonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ComboBoxTipoCedula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonCancelar))))
+                        .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMainLayout.createSequentialGroup()
+                                .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ButtonCancelar))
+                            .addGroup(PanelMainLayout.createSequentialGroup()
+                                .addComponent(LabelNumCedula)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         PanelMainLayout.setVerticalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,7 +349,8 @@ public class ViewFactura extends javax.swing.JFrame {
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(FieldCodBarras2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ComboBoxTipoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ComboBoxTipoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LabelNumCedula))
                             .addComponent(LabelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonProcesar)
@@ -432,6 +441,7 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JLabel LabelDivisa;
     private javax.swing.JLabel LabelImpuestos;
     private javax.swing.JLabel LabelNomCliente;
+    private javax.swing.JLabel LabelNumCedula;
     private javax.swing.JLabel LabelSubtotal;
     private javax.swing.JLabel LabelTotal;
     private javax.swing.JLabel LabelValueDescuento;

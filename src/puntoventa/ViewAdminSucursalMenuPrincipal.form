@@ -46,15 +46,9 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LabelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelCedula" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelNombreUsuario" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="LabelCedula" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -81,12 +75,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="ButtonLogOut" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LabelUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LabelNombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LabelCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelNumCedula" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -115,16 +104,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="LabelUsuario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="LabelNombreUsuario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Manuel Zuniga"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="LabelCedula">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cedula"/>
