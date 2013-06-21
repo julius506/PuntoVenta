@@ -450,7 +450,25 @@ public class ViewFactura extends javax.swing.JFrame {
         String num_caja = "1";
         int num_rows = (int) TableProductos.getRowCount();
         
+        
+        
         Conexion manager = new Conexion();
+        
+        //obtiene saldo actual
+        String queryActual = "select saldo_actual from Caja where tiempo in (select max(tiempo) from Caja);";
+            manager.consulta(queryActual);
+            String saldo = manager.getHileraResultado();
+            String[] parts = saldo.split("-");
+            saldo = parts[0]; // 004
+            saldo = saldo.substring(1);
+            Double Dsaldo = Double.parseDouble(saldo);
+            Double Dtotal = Double.parseDouble(total);
+            Double NewSaldo = Dsaldo+Dtotal;
+        //actualiza saldo
+        
+        String queryActualizarSaldo = "insert into caja values ('1', "+NewSaldo+", CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP);";
+        manager.consulta(queryActualizarSaldo);
+        
         String insertFactura = "insert into facturas values(default, CURRENT_TIMESTAMP, "+total+", '"+num_caja+"', '"+cedulaCliente+"', '"+cedulaCajero+"') returning Num_Factura;";
         manager.consulta(insertFactura);
         String facturaID = manager.getHileraResultado();
@@ -482,7 +500,7 @@ public class ViewFactura extends javax.swing.JFrame {
             String sellProducto = "update producto set existencia = '"+nuevaExistenciaInt+"' where cod='"+codigo+"';";
             manager3.consulta(sellProducto);
         }
-              
+        this.dispose();    
         
         
         

@@ -15,6 +15,9 @@ public class EstadoActualCaja extends javax.swing.JFrame {
      */
     public EstadoActualCaja() {
         initComponents();
+       // EstadoCaja.setText(estado);
+        Conexion manager = new Conexion();
+        String queryProveedores = "select cedula, tipo, nombre, apellido1, apellido2, descuento, contacto, email from persona natural join proveedor;";
     }
 
     /**

@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Julian
@@ -16,6 +18,9 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     public ViewAdminAlmacenMenuPrincipal(String usr) {
         initComponents();
         LabelNumCedula.setText(usr);
+        ToggleButtonCaja.setText("Cerrada");
+        ButtonEstadoCaja.setVisible(false);
+        ButtonEstadoCaja1.setVisible(false);
     }
 
     /**
@@ -44,6 +49,8 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         ButtonEstadisticas = new javax.swing.JButton();
         ButtonCambiarDatos = new javax.swing.JButton();
         ButtonEstadoCaja1 = new javax.swing.JButton();
+        ToggleButtonCaja = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -144,6 +151,15 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ToggleButtonCaja.setText("jToggleButton1");
+        ToggleButtonCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ToggleButtonCajaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Caja");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,7 +174,10 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                         .addComponent(LabelCedula)
                         .addGap(25, 25, 25)
                         .addComponent(LabelNumCedula)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ToggleButtonCaja))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,17 +194,19 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ButtonProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonEstadoCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                            .addComponent(ButtonEstadoCaja1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(ButtonLogOut)
-                .addGap(39, 39, 39)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCedula)
-                    .addComponent(LabelNumCedula))
+                    .addComponent(LabelNumCedula)
+                    .addComponent(ToggleButtonCaja)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -206,7 +227,7 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonEstadisticas)
                     .addComponent(ButtonCambiarDatos))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,6 +304,37 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
         Estado.setVisible(true);
     }//GEN-LAST:event_ButtonEstadoCaja1ActionPerformed
 
+    private void ToggleButtonCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleButtonCajaActionPerformed
+        Conexion manager = new Conexion();
+        String cedula = LabelNumCedula.getText();
+        if(ToggleButtonCaja.getText().equals("Cerrada")){
+            ToggleButtonCaja.setText("Abierta");
+          
+            String saldo = JOptionPane.showInputDialog ( "Saldo actual" ); 
+            String queryActual = "insert into caja values ('1', "+saldo+", CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP);";
+            manager.consulta(queryActual);
+            String queryAbrir = "insert into Apertura_Caja values ('1', CURRENT_DATE, CURRENT_TIME, "+cedula+", "+saldo+", CURRENT_TIMESTAMP);";
+            manager.consulta(queryAbrir);
+            JOptionPane.showMessageDialog(null, "Se abre la caja con un saldo de "+saldo+" ", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            ToggleButtonCaja.setText("Cerrada");
+            //cierra con el saldo actual
+            String queryActual = "select saldo_actual from Caja where tiempo in (select max(tiempo) from Caja);";
+            manager.consulta(queryActual);
+            String saldo = manager.getHileraResultado();
+            String[] parts = saldo.split("-");
+            saldo = parts[0]; // 004
+            saldo = saldo.substring(1);
+            
+
+            
+            String queryCerrar = "insert into Cierre_Caja values ('1', CURRENT_DATE, CURRENT_TIME, "+cedula+", "+saldo+", CURRENT_TIMESTAMP);";
+            manager.consulta(queryCerrar);
+            JOptionPane.showMessageDialog(null, "Se cerro la caja con un saldo de "+saldo+" ", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_ToggleButtonCajaActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
@@ -300,7 +352,9 @@ public class ViewAdminAlmacenMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ButtonSolicitarProductos;
     private javax.swing.JLabel LabelCedula;
     private javax.swing.JLabel LabelNumCedula;
+    private javax.swing.JToggleButton ToggleButtonCaja;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

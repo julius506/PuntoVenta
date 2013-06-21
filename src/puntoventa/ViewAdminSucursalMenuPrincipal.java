@@ -4,6 +4,8 @@
  */
 package puntoventa;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Julian
@@ -16,6 +18,9 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     public ViewAdminSucursalMenuPrincipal(String usr) {
         initComponents();
         LabelNumCedula.setText(usr);
+        //LabelEstadoCaja.setVisible(false);
+        ToggleButtonCaja.setText("Cerrada");
+        ButtonEstadoCaja.setVisible(false);
     }
 
     /**
@@ -39,6 +44,8 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         ButtonEmpleados = new javax.swing.JButton();
         ButtonEstadisticas = new javax.swing.JButton();
         ButtonEstadoCaja = new javax.swing.JButton();
+        ToggleButtonCaja = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +116,15 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        ToggleButtonCaja.setText("jToggleButton1");
+        ToggleButtonCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ToggleButtonCajaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Caja");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,33 +135,40 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonClientesEspeciales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LabelCedula)
                         .addGap(25, 25, 25)
-                        .addComponent(LabelNumCedula))
+                        .addComponent(LabelNumCedula)))
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ButtonInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonFacturaNueva, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonClientesEspeciales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonEstadisticas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonSolicitarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonEmpleados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(30, 30, 30)
-                        .addComponent(ButtonEstadoCaja)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(ButtonEstadoCaja))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ToggleButtonCaja)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(ButtonLogOut)
-                .addGap(39, 39, 39)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCedula)
-                    .addComponent(LabelNumCedula))
+                    .addComponent(LabelNumCedula)
+                    .addComponent(ToggleButtonCaja)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonFacturaNueva)
@@ -161,7 +184,7 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(ButtonEmpleados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonEstadisticas)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,6 +242,36 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
         Estado.setVisible(true);
     }//GEN-LAST:event_ButtonEstadoCajaActionPerformed
 
+    private void ToggleButtonCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ToggleButtonCajaActionPerformed
+        Conexion manager = new Conexion();
+        String cedula = LabelNumCedula.getText();
+        if(ToggleButtonCaja.getText().equals("Cerrada")){
+            ToggleButtonCaja.setText("Abierta");
+          
+            String saldo = JOptionPane.showInputDialog ( "Saldo actual" ); 
+            String queryActual = "insert into caja values ('1', "+saldo+", CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP);";
+            manager.consulta(queryActual);
+            String queryAbrir = "insert into Apertura_Caja values ('1', CURRENT_DATE, CURRENT_TIME, "+cedula+", "+saldo+", CURRENT_TIMESTAMP);";
+            manager.consulta(queryAbrir);
+            JOptionPane.showMessageDialog(null, "Se abre la caja con un saldo de "+saldo+" ", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            ToggleButtonCaja.setText("Cerrada");
+            //cierra con el saldo actual
+            String queryActual = "select saldo_actual from Caja where tiempo in (select max(tiempo) from Caja);";
+            manager.consulta(queryActual);
+            String saldo = manager.getHileraResultado();
+            String[] parts = saldo.split("-");
+            saldo = parts[0]; // 004
+            saldo = saldo.substring(1);
+            
+
+            
+            String queryCerrar = "insert into Cierre_Caja values ('1', CURRENT_DATE, CURRENT_TIME, "+cedula+", "+saldo+", CURRENT_TIMESTAMP);";
+            manager.consulta(queryCerrar);
+            JOptionPane.showMessageDialog(null, "Se cerro la caja con un saldo de "+saldo+" ", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_ToggleButtonCajaActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBuscarProducto;
@@ -232,6 +285,8 @@ public class ViewAdminSucursalMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton ButtonSolicitarProductos;
     private javax.swing.JLabel LabelCedula;
     private javax.swing.JLabel LabelNumCedula;
+    private javax.swing.JToggleButton ToggleButtonCaja;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

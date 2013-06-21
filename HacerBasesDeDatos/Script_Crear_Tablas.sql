@@ -90,39 +90,49 @@ CREATE TABLE Empleado(
 
 CREATE TABLE Caja(
 	Num_Caja char(14) not null,
-	Saldo_al_corte money,
-	Saldo_Final money,
-	primary key (Num_Caja)
+	Saldo_actual money,
+	Fecha date,
+	Hora time,
+	tiempo timestamp,
+	primary key (Num_Caja, Saldo_actual, Fecha, Hora)
 );
 
 CREATE TABLE Cierre_Caja(
 	Num_Caja char(14) not null,
-	ID_Cierre char(14) not null,
-	Fecha_Aper date,
-	Hora_Apertur time,
 	Fecha_Cierre date,
 	Hora_Cierre time,
 	Cedula char(14),
 	Saldo money,
-	primary key (Num_Caja, ID_Cierre),
-	foreign key (Cedula) references Persona,
-	foreign key (Num_Caja) references Caja
+	tiempo timestamp,
+	primary key (Num_Caja, Fecha_Cierre, Hora_Cierre, Cedula, Saldo),
+	foreign key (Cedula) references empleado
 );
 
+CREATE TABLE Apertura_Caja(
+	Num_Caja char(14) not null,
+	Fecha_Aper date,
+	Hora_Apertur time,
+	Cedula char(14),
+	Saldo money,
+	tiempo timestamp,
+	primary key (Num_Caja, Fecha_Aper, Hora_Apertur, Cedula, Saldo),
+	foreign key (Cedula) references empleado
+);
+
+
 CREATE TABLE Facturas(
-	Num_Factura char(14) not null,
+	Num_Factura serial not null,
 	Fecha date,
-	Moneda char(14),
-	Tipo_Cambio char(14),
 	Total money,
 	Num_Caja char(14),
-	Cedula char(14),
+	Cedula_Cliente char(14),
+	Cedula_Cajero char(14),
 	primary key (Num_Factura),
-	foreign key (Cedula) references Persona
+	foreign key (Cedula_Cajero) references LogIn(username)
 );
 
 CREATE TABLE Facturados(
-	Num_Factura char(14) not null,
+	Num_Factura int not null,
 	Cod char(30) not null,
 	Cantidad int not null,
 	Precio money not null,
@@ -131,26 +141,26 @@ CREATE TABLE Facturados(
 	foreign key (Cod) references Producto
 );
 
+CREATE TABLE Compra(	
+	ID_Solicitud serial not null,
+	CedulaEmpleado char(14) not null,
+	Total money,
+	Fecha date not null,
+	primary key (ID_Solicitud),
+	foreign key (CedulaEmpleado) references Empleado (cedula)
+);
+
 CREATE TABLE Solicitud(
-	ID_Solicitud char(14) not null,
+	ID_Solicitud int not null,
 	Cod char(30) not null,
 	CedulaVen char(14) not null,  
 	CedulaPro char(14) not null,
 	Cantidad int,
 	Precio money,
 	primary key (ID_Solicitud),
-	foreign key (CedulaVen) references Persona,
-	foreign key (CedulaPro) references Persona
-);
-
-CREATE TABLE Compra(	
-	ID_Compra char(14) not null,
-	ID_Solicitud char(14) not null,
-	Cedula char(14) not null,
-	Fecha date not null,
-	primary key (ID_Compra, ID_Solicitud),
-	foreign key (ID_Solicitud) references Solicitud,
-	foreign key (Cedula) references Persona
+	foreign key (ID_Solicitud) references compra,
+	foreign key (CedulaVen) references Empleado (cedula),
+	--foreign key (CedulaPro) references Proveedor (cedula)
 );
 
 CREATE TABLE Proveedor(
