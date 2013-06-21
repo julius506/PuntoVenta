@@ -20,15 +20,15 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         ButtonEliminar.setVisible(false);
         LabelNumCedula.setVisible(false);
         LabelNumCedula.setText(cedula);
-        ComboBoxSucursal.setVisible(false);
-        LabelSucursal.setVisible(false);
+        //ComboBoxSucursal.setVisible(false);
+        //LabelSucursal.setVisible(false);
         ComboBoxSucursal.removeAllItems();
         Conexion manager = new Conexion();
         
         String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto order by cod ASC;";
         manager.llenarTabla(queryInventario, TableInventario);
         
-        String querySucursal = "select distinct nombre from sucursales order by nombre ASC;";
+        String querySucursal = "select distinct cedula from sucursales natural join juridico order by cedula ASC;";
         manager.llenarCombobox(querySucursal, ComboBoxSucursal);
     }
 
@@ -132,23 +132,23 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         TablePedido.setAutoCreateRowSorter(true);
         TablePedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descripcion", "Cantidad", "Precio Costo"
+                "Codigo", "Descripcion", "Cantidad", "Precio Costo", "Sucursal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Integer.class, java.lang.Long.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -320,7 +320,32 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonEnviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnviarSolicitudActionPerformed
-        new ViewAdminAlmacenMenuPrincipal( LabelNumCedula.getText() ).setVisible(true);
+        String cedulaCajero = LabelNumCedula.getText();
+        //String total = LabelValueTotal.getText();
+        String num_caja = "1";
+        String total = LabelTotal.getText();
+        int num_rows = (int) TablePedido.getRowCount();
+        
+        Conexion manager = new Conexion();
+        String insertFactura = "insert into Compra values(default, '"+cedulaCajero+"', "+total+", CURRENT_TIMESTAMP) returning ID_Solicitud;";
+        manager.consulta(insertFactura);
+        String ID_Solicitud = manager.getHileraResultado();
+        ID_Solicitud = ID_Solicitud.replaceAll("\\W","");
+        System.out.print("paso 1");
+        
+        for(int i=0;i<num_rows;i++){
+            //inserto cada producto en facturados
+            Conexion manager2 = new Conexion();
+            String codigo = TablePedido.getValueAt(i,0).toString();
+            int cantidad = Integer.parseInt( TablePedido.getValueAt(i,2).toString() );
+            double precio = Double.parseDouble( TablePedido.getValueAt(i,3).toString() );
+            String proveedor = TablePedido.getValueAt(i,4).toString();
+            
+            
+            String insertFacturado = "insert into solicitud values("+ID_Solicitud+", '"+codigo+"', '"+cedulaCajero+"', '"+proveedor+"',  "+cantidad+", "+precio+");";
+            manager2.consulta(insertFacturado);
+            
+        }
         this.dispose();
     }//GEN-LAST:event_ButtonEnviarSolicitudActionPerformed
 
@@ -376,7 +401,8 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         if( ProductosFacturados.contains("select") ){ //si ya hay productos facturados agrega un union
             ProductosFacturados = ProductosFacturados+" UNION ";
         }
-        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '"+cantidad+"' as Cantidad, costo as Precio from producto where cod='"+codigo+"'"; //query de nuevo producto
+        String sucursal = ComboBoxSucursal.getSelectedItem().toString();
+        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '"+cantidad+"' as Cantidad, costo as Precio, '"+sucursal+"'as Sucursal from producto where cod='"+codigo+"'"; //query de nuevo producto
         ProductosFacturados = ProductosFacturados+queryProducto; //agregar query de nuevo producto
         LabelProductosFacturados.setText(ProductosFacturados); //almacena nuevo query
         String query = "select * from ("+ProductosFacturados+") as A;"; //ejecuta el nuevo query
