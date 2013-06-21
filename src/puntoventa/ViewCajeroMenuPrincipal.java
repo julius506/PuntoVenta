@@ -154,7 +154,12 @@ public class ViewCajeroMenuPrincipal extends javax.swing.JFrame {
 
     private void ButtonFacturaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonFacturaNuevaActionPerformed
         // Falta crear un if para que abra la caja automaticamente si no lo hicieron antes
-        new ViewFactura( LabelNumCedula.getText() ).setVisible(true);
+        if(ToggleButtonCaja.getText().contains("Abierta")){
+            new ViewFactura( LabelNumCedula.getText() ).setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe abrir la caja antes de hacer una factura", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_ButtonFacturaNuevaActionPerformed
 
     private void ButtonEstadoCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEstadoCajaActionPerformed
