@@ -331,7 +331,7 @@ public class ViewAdminAlmacenSolicitarProductos extends javax.swing.JFrame {
         manager.consulta(insertFactura);
         String ID_Solicitud = manager.getHileraResultado();
         ID_Solicitud = ID_Solicitud.replaceAll("\\W","");
-        System.out.print("paso 1");
+        //System.out.print("paso 1");
         
         for(int i=0;i<num_rows;i++){
             //inserto cada producto en facturados
