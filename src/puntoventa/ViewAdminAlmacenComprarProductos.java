@@ -30,7 +30,7 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
         String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3 from producto order by cod ASC;";
         manager.llenarTabla(queryInventario, TableInventario);
         
-        String query = "select distinct nombre from proveedor order by nombre ASC;";
+        String query = "select distinct cedula from proveedor order by cedula ASC;";
         manager.llenarCombobox(query, ComboBoxProveedor);
     }
 
@@ -325,7 +325,34 @@ public class ViewAdminAlmacenComprarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonComprarActionPerformed
-        new ViewAdminAlmacenMenuPrincipal( LabelNumCedula.getText() ).setVisible(true);
+        
+        
+        String cedulaCajero = LabelNumCedula.getText();
+        //String total = LabelValueTotal.getText();
+        String num_caja = "1";
+        String total = LabelTotal.getText();
+        int num_rows = (int) TablePedido.getRowCount();
+        
+        Conexion manager = new Conexion();
+        String insertFactura = "insert into Compra values(default, '"+cedulaCajero+"', "+total+", CURRENT_TIMESTAMP) returning ID_Solicitud;";
+        manager.consulta(insertFactura);
+        String ID_Solicitud = manager.getHileraResultado();
+        ID_Solicitud = ID_Solicitud.replaceAll("\\W","");
+        System.out.print("paso 1");
+        
+        for(int i=0;i<num_rows;i++){
+            //inserto cada producto en facturados
+            Conexion manager2 = new Conexion();
+            String codigo = TablePedido.getValueAt(i,0).toString();
+            int cantidad = Integer.parseInt( TablePedido.getValueAt(i,2).toString() );
+            double precio = Double.parseDouble( TablePedido.getValueAt(i,3).toString() );
+            String proveedor = TablePedido.getValueAt(i,4).toString();
+            
+            
+            String insertFacturado = "insert into solicitud values("+ID_Solicitud+", '"+codigo+"', '"+cedulaCajero+"', '"+proveedor+"',  "+cantidad+", "+precio+");";
+            manager2.consulta(insertFacturado);
+            
+        }
         this.dispose();
     }//GEN-LAST:event_ButtonComprarActionPerformed
 
