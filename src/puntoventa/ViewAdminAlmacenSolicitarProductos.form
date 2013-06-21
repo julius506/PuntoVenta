@@ -28,7 +28,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -41,15 +44,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ButtonEnviarSolicitud" min="-2" pref="132" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ButtonCancelar" max="32767" attributes="0"/>
-                      <Component id="jButton1" max="32767" attributes="0"/>
-                      <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ButtonCancelar" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonModificar" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonEliminar" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                  <Component id="LabelTotal" min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -57,17 +69,22 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
                   <Component id="ButtonEnviarSolicitud" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="ButtonCancelar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonModificar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                  <Component id="ButtonEliminar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,43 +98,40 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ScrollPaneBuscar" alignment="0" pref="575" max="32767" attributes="0"/>
+                          <Component id="ScrollPaneBuscar" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="LabelCodBarras" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="LabelSucursal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="TextFieldCodBarras" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="TextFieldDescripcion" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="ButtonBuscar" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ComboBoxSucursal" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="LabelCodBarras1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="TextFieldCodBarras1" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="LabelCantidad" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="TextFieldCantidad" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ButtonAgregar" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="LabelCodBarras" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelSucursal" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="TextFieldCodBarras" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TextFieldDescripcion" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="ButtonBuscar" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="ComboBoxSucursal" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="LabelProductosFacturados" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="ScrollPaneBuscar1" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LabelCodBarras1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="TextFieldCodBarrasAgregar" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LabelCantidad" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="TextFieldCantidad" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="ButtonAgregar" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="ScrollPaneBuscar1" alignment="0" min="-2" pref="764" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -137,6 +151,7 @@
                           <Component id="TextFieldDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelNumCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelProductosFacturados" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -148,7 +163,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="LabelCodBarras1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextFieldCodBarras1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextFieldCodBarrasAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TextFieldCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -190,19 +205,25 @@
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="7">
+                      <Table columnCount="9" rowCount="7">
                         <Column editable="false" title="Codigo" type="java.lang.Long"/>
                         <Column editable="false" title="Descripcion" type="java.lang.String"/>
                         <Column editable="false" title="Cant. Min." type="java.lang.Integer"/>
                         <Column editable="false" title="Cant. Actual" type="java.lang.Integer"/>
+                        <Column editable="false" title="Medida" type="java.lang.String"/>
                         <Column editable="false" title="Precio Costo" type="java.lang.Long"/>
-                        <Column editable="false" title="Precio Venta" type="java.lang.Long"/>
-                        <Column editable="false" title="Utilidad" type="java.lang.Long"/>
-                        <Column editable="false" title="Sucursal" type="java.lang.String"/>
+                        <Column editable="false" title="Precio1" type="java.lang.Long"/>
+                        <Column editable="false" title="Precio2" type="java.lang.Long"/>
+                        <Column editable="false" title="Precio3" type="java.lang.Long"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -269,7 +290,7 @@
                 <Property name="text" type="java.lang.String" value="Codigo Barras"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="TextFieldCodBarras1">
+            <Component class="javax.swing.JTextField" name="TextFieldCodBarrasAgregar">
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCantidad">
               <Properties>
@@ -297,39 +318,15 @@
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="7">
+                      <Table columnCount="4" rowCount="7">
                         <Column editable="false" title="Codigo" type="java.lang.Long"/>
                         <Column editable="false" title="Descripcion" type="java.lang.String"/>
-                        <Column editable="false" title="Cant. Min." type="java.lang.Integer"/>
-                        <Column editable="false" title="Cant. Actual" type="java.lang.Integer"/>
+                        <Column editable="false" title="Cantidad" type="java.lang.Integer"/>
                         <Column editable="false" title="Precio Costo" type="java.lang.Long"/>
-                        <Column editable="false" title="Precio Venta" type="java.lang.Long"/>
-                        <Column editable="false" title="Utilidad" type="java.lang.Long"/>
-                        <Column editable="false" title="Sucursal" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -366,6 +363,8 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNumCedula">
             </Component>
+            <Component class="javax.swing.JLabel" name="LabelProductosFacturados">
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="ButtonEnviarSolicitud">
@@ -384,14 +383,24 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCancelarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="ButtonModificar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="ButtonEliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelTotal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
       </SubComponents>
