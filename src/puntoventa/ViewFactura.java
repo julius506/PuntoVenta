@@ -17,6 +17,7 @@ public class ViewFactura extends javax.swing.JFrame {
         initComponents();
         LabelNumCedula.setVisible(false);
         LabelNumCedula.setText(cedula);
+        ButtonModificar.setVisible(false);
         /*LabelSubtotal.setText("0");
         LabelValueTotal.setText("0");
         LabelValueImpuesto.setText("0");
@@ -46,12 +47,12 @@ public class ViewFactura extends javax.swing.JFrame {
         LabelValueImpuesto = new javax.swing.JLabel();
         LabelValueTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableProductos = new javax.swing.JTable();
         ComboBoxDivisa = new javax.swing.JComboBox();
         LabelDivisa = new javax.swing.JLabel();
         LabelValueTotalDivisa = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ButtonModificar = new javax.swing.JButton();
+        ButtonEliminar = new javax.swing.JButton();
         LabelCodBarras = new javax.swing.JLabel();
         LabelNomCliente = new javax.swing.JLabel();
         LabelCedulaCliente = new javax.swing.JLabel();
@@ -102,8 +103,8 @@ public class ViewFactura extends javax.swing.JFrame {
 
         LabelValueTotal.setText("0");
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableProductos.setAutoCreateRowSorter(true);
+        TableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -132,12 +133,12 @@ public class ViewFactura extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(3).setResizable(false);
+        TableProductos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TableProductos);
+        TableProductos.getColumnModel().getColumn(0).setResizable(false);
+        TableProductos.getColumnModel().getColumn(1).setResizable(false);
+        TableProductos.getColumnModel().getColumn(2).setResizable(false);
+        TableProductos.getColumnModel().getColumn(3).setResizable(false);
 
         ComboBoxDivisa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dolares", "Euros", "Cordobas" }));
         ComboBoxDivisa.addActionListener(new java.awt.event.ActionListener() {
@@ -150,17 +151,17 @@ public class ViewFactura extends javax.swing.JFrame {
 
         LabelValueTotalDivisa.setText("0");
 
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonModificar.setText("Modificar");
+        ButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ButtonModificarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ButtonEliminar.setText("Eliminar");
+        ButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ButtonEliminarActionPerformed(evt);
             }
         });
 
@@ -197,8 +198,8 @@ public class ViewFactura extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ButtonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelTableLayout.setVerticalGroup(
@@ -208,9 +209,9 @@ public class ViewFactura extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelTableLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jButton1)
+                        .addComponent(ButtonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(ButtonEliminar)))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(PanelTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTableLayout.createSequentialGroup()
@@ -258,6 +259,11 @@ public class ViewFactura extends javax.swing.JFrame {
         });
 
         ButtonAgregar.setText("Agregar");
+        ButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAgregarActionPerformed(evt);
+            }
+        });
 
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -416,19 +422,27 @@ public class ViewFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldCodigoDescuentoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonModificarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ButtonEliminarActionPerformed
+
+    private void ButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
+        Conexion manager = new Conexion();
+        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
+        manager.llenarTabla(queryInventario, TableProductos);
+    }//GEN-LAST:event_ButtonAgregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonAgregar;
     private javax.swing.JButton ButtonBuscar;
     private javax.swing.JButton ButtonCancelar;
+    private javax.swing.JButton ButtonEliminar;
+    private javax.swing.JButton ButtonModificar;
     private javax.swing.JButton ButtonProcesar;
     private javax.swing.JComboBox ComboBoxDivisa;
     private javax.swing.JComboBox ComboBoxTipoCedula;
@@ -452,10 +466,8 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JPanel PanelCalculosFactura;
     private javax.swing.JPanel PanelMain;
     private javax.swing.JPanel PanelTable;
+    private javax.swing.JTable TableProductos;
     private javax.swing.JTextField TextFieldCodigoDescuento;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
