@@ -165,8 +165,18 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
         ComboBoxDistrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ComboBoxCanton.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxCanton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboBoxCantonItemStateChanged(evt);
+            }
+        });
 
         ComboBoxProvincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxProvincia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ComboBoxProvinciaItemStateChanged(evt);
+            }
+        });
 
         jLabel9.setText("Comision");
 
@@ -327,12 +337,11 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ComboBoxPuesto, 0, 90, Short.MAX_VALUE)
-                                    .addComponent(PasswordTextField))
-                                .addGap(165, 165, 165))
+                                    .addComponent(PasswordTextField)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(PanelNoJuridico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addComponent(PanelNoJuridico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -451,6 +460,24 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
     private void TextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldTelefonoActionPerformed
+
+    private void ComboBoxProvinciaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboBoxProvinciaItemStateChanged
+        ComboBoxCanton.removeAllItems();
+        Conexion manager = new Conexion();
+        if(ComboBoxProvincia.getSelectedItem()!=null){
+            String queryCanton = "select distinct canton from lugar where provincia='"+ComboBoxProvincia.getSelectedItem().toString()+"' order by canton ASC;";
+            manager.llenarCombobox(queryCanton, ComboBoxCanton);
+        }   
+    }//GEN-LAST:event_ComboBoxProvinciaItemStateChanged
+
+    private void ComboBoxCantonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboBoxCantonItemStateChanged
+        ComboBoxDistrito.removeAllItems();
+        Conexion manager = new Conexion();
+        if(ComboBoxCanton.getSelectedItem()!=null){
+            String queryCanton = "select distinct distrito from lugar where canton='"+ComboBoxCanton.getSelectedItem().toString()+"' order by distrito ASC;";
+            manager.llenarCombobox(queryCanton, ComboBoxDistrito);
+        }
+    }//GEN-LAST:event_ComboBoxCantonItemStateChanged
 
     /**
      * @param args the command line arguments
