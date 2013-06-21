@@ -54,30 +54,44 @@
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="FieldCodBarras1" pref="100" max="32767" attributes="0"/>
-                                  <Component id="FieldCodBarras" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="TextFieldNombre" pref="100" max="32767" attributes="0"/>
+                                      <Component id="FieldCodBarras" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="ButtonAgregar" max="32767" attributes="0"/>
+                                      <Component id="ComboBoxTipoCedula" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="ButtonBuscar" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="ButtonCancelar" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                                  <Component id="LabelProductosEliminados" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="LabelProductosFacturados" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="ButtonProcesar" alignment="0" pref="100" max="32767" attributes="0"/>
-                                  <Component id="FieldCodBarras2" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ButtonAgregar" max="32767" attributes="0"/>
-                              <Component id="ComboBoxTipoCedula" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="ButtonBuscar" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ButtonProcesar" alignment="0" pref="100" max="32767" attributes="0"/>
+                                      <Component id="TextFieldCedulaCliente" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="ButtonCancelar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="LabelNumCedula" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="ButtonRefrescar" min="-2" pref="102" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -100,22 +114,27 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="FieldCodBarras1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelNomCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FieldCodBarras2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextFieldCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ComboBoxTipoCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LabelNumCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelProductosFacturados" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelProductosEliminados" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="LabelCedulaCliente" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="ButtonProcesar" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ButtonProcesar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonRefrescar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="PanelTable" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -424,14 +443,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProcesarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="FieldCodBarras1">
+        <Component class="javax.swing.JTextField" name="TextFieldNombre">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldCodBarras1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldNombreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="FieldCodBarras2">
+        <Component class="javax.swing.JTextField" name="TextFieldCedulaCliente">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldCodBarras2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldCedulaClienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ButtonBuscar">
@@ -455,6 +474,18 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelNumCedula">
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelProductosFacturados">
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelProductosEliminados">
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonRefrescar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Refrescar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonRefrescarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

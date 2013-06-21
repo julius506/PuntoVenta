@@ -15,9 +15,18 @@ public class ViewFactura extends javax.swing.JFrame {
      */
     public ViewFactura(String cedula) {
         initComponents();
+        LabelDivisa.setVisible(false);
+        ComboBoxDivisa.setVisible(false);
+        ButtonEliminar.setVisible(false);
         LabelNumCedula.setVisible(false);
         LabelNumCedula.setText(cedula);
         ButtonModificar.setVisible(false);
+        LabelProductosFacturados.setVisible(false);
+        LabelProductosFacturados.setText("");
+        TextFieldCodigoDescuento.setVisible(false);
+        
+        LabelProductosEliminados.setVisible(false);
+        LabelProductosEliminados.setText("");
         /*LabelSubtotal.setText("0");
         LabelValueTotal.setText("0");
         LabelValueImpuesto.setText("0");
@@ -60,11 +69,14 @@ public class ViewFactura extends javax.swing.JFrame {
         ButtonAgregar = new javax.swing.JButton();
         ButtonCancelar = new javax.swing.JButton();
         ButtonProcesar = new javax.swing.JButton();
-        FieldCodBarras1 = new javax.swing.JTextField();
-        FieldCodBarras2 = new javax.swing.JTextField();
+        TextFieldNombre = new javax.swing.JTextField();
+        TextFieldCedulaCliente = new javax.swing.JTextField();
         ButtonBuscar = new javax.swing.JButton();
         ComboBoxTipoCedula = new javax.swing.JComboBox();
         LabelNumCedula = new javax.swing.JLabel();
+        LabelProductosFacturados = new javax.swing.JLabel();
+        LabelProductosEliminados = new javax.swing.JLabel();
+        ButtonRefrescar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -279,15 +291,15 @@ public class ViewFactura extends javax.swing.JFrame {
             }
         });
 
-        FieldCodBarras1.addActionListener(new java.awt.event.ActionListener() {
+        TextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldCodBarras1ActionPerformed(evt);
+                TextFieldNombreActionPerformed(evt);
             }
         });
 
-        FieldCodBarras2.addActionListener(new java.awt.event.ActionListener() {
+        TextFieldCedulaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldCodBarras2ActionPerformed(evt);
+                TextFieldCedulaClienteActionPerformed(evt);
             }
         });
 
@@ -299,6 +311,13 @@ public class ViewFactura extends javax.swing.JFrame {
         });
 
         ComboBoxTipoCedula.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fisico", "Juridico", "Residente", "Extranjero" }));
+
+        ButtonRefrescar.setText("Refrescar");
+        ButtonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefrescarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
         PanelMain.setLayout(PanelMainLayout);
@@ -315,25 +334,35 @@ public class ViewFactura extends javax.swing.JFrame {
                             .addComponent(LabelNomCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(12, 12, 12)
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(FieldCodBarras1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addComponent(FieldCodBarras))
-                            .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(ButtonProcesar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addComponent(FieldCodBarras2, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ButtonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ComboBoxTipoCedula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelMainLayout.createSequentialGroup()
-                                .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(TextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(FieldCodBarras))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ButtonAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ComboBoxTipoCedula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelMainLayout.createSequentialGroup()
+                                        .addComponent(ButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ButtonCancelar))
+                                    .addGroup(PanelMainLayout.createSequentialGroup()
+                                        .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PanelMainLayout.createSequentialGroup()
+                                                .addComponent(LabelNumCedula)
+                                                .addGap(123, 123, 123)
+                                                .addComponent(LabelProductosEliminados))
+                                            .addComponent(LabelProductosFacturados))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(PanelMainLayout.createSequentialGroup()
+                                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ButtonProcesar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(TextFieldCedulaCliente, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ButtonCancelar))
-                            .addGroup(PanelMainLayout.createSequentialGroup()
-                                .addComponent(LabelNumCedula)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addComponent(ButtonRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85))))))
         );
         PanelMainLayout.setVerticalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,17 +378,21 @@ public class ViewFactura extends javax.swing.JFrame {
                             .addComponent(ButtonBuscar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FieldCodBarras1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LabelNomCliente))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(FieldCodBarras2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextFieldCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(ComboBoxTipoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LabelNumCedula))
+                                .addComponent(LabelNumCedula)
+                                .addComponent(LabelProductosFacturados)
+                                .addComponent(LabelProductosEliminados))
                             .addComponent(LabelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButtonProcesar)
+                .addGroup(PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonProcesar)
+                    .addComponent(ButtonRefrescar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PanelTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -381,17 +414,21 @@ public class ViewFactura extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FieldCodBarras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCodBarras1ActionPerformed
+    private void TextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FieldCodBarras1ActionPerformed
+    }//GEN-LAST:event_TextFieldNombreActionPerformed
 
     private void FieldCodBarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCodBarrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldCodBarrasActionPerformed
 
-    private void FieldCodBarras2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCodBarras2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FieldCodBarras2ActionPerformed
+    private void TextFieldCedulaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldCedulaClienteActionPerformed
+        Conexion manager = new Conexion();
+        String cedulaCliente = LabelCedulaCliente.getText();
+        String queryDescuento = "select descuento from cliente where cedula='"+cedulaCliente+"'";
+        manager.consulta(queryDescuento);
+        LabelValueDescuento.setText( manager.getHileraResultado() );
+    }//GEN-LAST:event_TextFieldCedulaClienteActionPerformed
 
     private void ButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarActionPerformed
         new ViewCajeroBuscarProducto().setVisible(true);
@@ -403,14 +440,60 @@ public class ViewFactura extends javax.swing.JFrame {
 
     private void ButtonProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProcesarActionPerformed
         // acá se procesará e imprimirá la factura
-        String cadena;
-        cadena = "acá se procesará e imprimirá la factura del Cajero";
-        if (!cadena.equals(""))
-				{
-					imp = new Impresora();
-					imp.imprimir(cadena);
-				}
-				else System.out.println("NO SE IMPRIME NADA EN BLANCO...");
+        String nombre = TextFieldNombre.getText();
+        String cedulaCliente = TextFieldCedulaCliente.getText();
+        String cedulaCajero = LabelNumCedula.getText();
+        String descuento = LabelValueDescuento.getText();
+        String impuestos = LabelValueImpuesto.getText();
+        String subtotal = LabelSubtotal.getText();
+        String total = LabelValueTotal.getText();
+        String num_caja = "1";
+        int num_rows = (int) TableProductos.getRowCount();
+        
+        Conexion manager = new Conexion();
+        String insertFactura = "insert into facturas values(default, CURRENT_TIMESTAMP, "+total+", '"+num_caja+"', '"+cedulaCliente+"', '"+cedulaCajero+"') returning Num_Factura;";
+        manager.consulta(insertFactura);
+        String facturaID = manager.getHileraResultado();
+        facturaID = facturaID.replaceAll("\\W","");
+        
+        
+        for(int i=0;i<num_rows;i++){
+            //inserto cada producto en facturados
+            Conexion manager2 = new Conexion();
+            String codigo = TableProductos.getValueAt(i,0).toString();
+            int cantidad = Integer.parseInt( TableProductos.getValueAt(i,2).toString() );
+            double precio = Double.parseDouble( TableProductos.getValueAt(i,3).toString() );
+            subtotal = subtotal + cantidad* (int) precio;
+            String insertFacturado = "insert into facturados values("+facturaID+", '"+codigo+"', '"+cantidad+"', '"+precio+"');";
+            manager2.consulta(insertFacturado);
+            
+            //obtengo existencia actual en inventario
+            Conexion manager3 = new Conexion();
+            String actualProducto = "select existencia from producto where cod='"+codigo+"';";
+            manager3.consulta(actualProducto);
+            String existencia = manager3.getHileraResultado();
+            existencia = existencia.replaceAll("\\W","");
+
+            
+            int existenciaInt = Integer.parseInt(existencia);
+
+            //actualizo nuevo valor de existencia actual
+            int nuevaExistenciaInt = existenciaInt-cantidad;
+            String sellProducto = "update producto set existencia = '"+nuevaExistenciaInt+"' where cod='"+codigo+"';";
+            manager3.consulta(sellProducto);
+        }
+              
+        
+        
+        
+//        String cadena;
+//        cadena = "acá se procesará e imprimirá la factura del Cajero";
+//        if (!cadena.equals(""))
+//				{
+//					imp = new Impresora();
+//					imp.imprimir(cadena);
+//				}
+//				else System.out.println("NO SE IMPRIME NADA EN BLANCO...");
 	
     }//GEN-LAST:event_ButtonProcesarActionPerformed
 
@@ -432,9 +515,83 @@ public class ViewFactura extends javax.swing.JFrame {
 
     private void ButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
         Conexion manager = new Conexion();
-        String queryInventario = "select cod, descripcion, minimo, existencia, medida, costo, precio1, precio2, precio3, impuesto, descuento, ubicacion from producto order by cod ASC;";
-        manager.llenarTabla(queryInventario, TableProductos);
+        
+        String ProductosFacturados = LabelProductosFacturados.getText();
+        String codigo = FieldCodBarras.getText();
+   
+        if( ProductosFacturados.contains("select") ){ //si ya hay productos facturados agrega un union
+            ProductosFacturados = ProductosFacturados+" UNION ";
+        }
+        String queryProducto = "select cod as Codigo, descripcion as Descripcion, '1' as Cantidad, precio1 as Precio from producto where cod='"+codigo+"'"; //query de nuevo producto
+        ProductosFacturados = ProductosFacturados+queryProducto; //agregar query de nuevo producto
+        LabelProductosFacturados.setText(ProductosFacturados); //almacena nuevo query
+        String query = "select * from ("+ProductosFacturados+") as A;"; //ejecuta el nuevo query
+        
+        manager.llenarTabla(query, TableProductos);
+
+        
+        Conexion manager2 = new Conexion();
+        String cedulaCliente = LabelCedulaCliente.getText();
+        String queryDescuento = "select descuento from cliente where cedula='"+cedulaCliente+"'";
+        manager2.consulta(queryDescuento);
+        LabelValueDescuento.setText( manager2.getHileraResultado() );
+        
+        LabelValueSubtotal.setText("");
+        
     }//GEN-LAST:event_ButtonAgregarActionPerformed
+
+    private void ButtonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefrescarActionPerformed
+        //actualizo tabla de productos 
+        Conexion manager = new Conexion();
+        String ProductosFacturados = LabelProductosFacturados.getText();
+        String query = "select * from ("+ProductosFacturados+") as A;";
+        manager.llenarTabla(query, TableProductos);
+        
+        //actualizo descuento para el cliente
+        Conexion manager2 = new Conexion();
+        String cedulaCliente = TextFieldCedulaCliente.getText();
+        String queryDescuento = "select descuento from cliente where cedula='"+cedulaCliente+"'";
+        manager2.consulta(queryDescuento);
+        String desc = manager2.getHileraResultado();
+        desc =desc.replaceAll("\\W","");
+        double descuento = 0.0;
+        if(desc.equals("")){
+            LabelValueDescuento.setText( "0" );
+        }else{
+            LabelValueDescuento.setText( desc );
+            descuento = Double.parseDouble(desc);
+        }
+        
+        //recalculo subtotal
+        int num_rows = (int) TableProductos.getRowCount();
+        double subtotal = 0.0;
+        for(int i=0;i<num_rows;i++){
+            int cantidad= Integer.parseInt( TableProductos.getValueAt(i,2).toString() );
+            double valor = Double.parseDouble( TableProductos.getValueAt(i,3).toString() );
+            subtotal = subtotal + cantidad* (int) valor;
+        }
+        LabelValueSubtotal.setText( Double.toString(subtotal));
+        
+        //calculo impuestos
+        Double impuesto = Double.parseDouble( LabelValueImpuesto.getText() );
+        Conexion manager3 = new Conexion();
+        String queryExonerado = "select exonerado from cliente where cedula='"+cedulaCliente+"'";
+        manager2.consulta(queryDescuento);
+        String exo = manager3.getHileraResultado();
+        desc =exo.replaceAll("\\W","");
+        
+        if(desc.contains("t")){
+            LabelValueImpuesto.setText( "0 (exonerado)" );
+            impuesto = 0.0;
+        }else{
+           
+        }
+        
+        //calculo total
+        double total = subtotal*(1+impuesto/100)*(1- descuento/100 );
+        LabelValueTotal.setText( Double.toString(total));
+        
+    }//GEN-LAST:event_ButtonRefrescarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -444,11 +601,10 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JButton ButtonEliminar;
     private javax.swing.JButton ButtonModificar;
     private javax.swing.JButton ButtonProcesar;
+    private javax.swing.JButton ButtonRefrescar;
     private javax.swing.JComboBox ComboBoxDivisa;
     private javax.swing.JComboBox ComboBoxTipoCedula;
     private javax.swing.JTextField FieldCodBarras;
-    private javax.swing.JTextField FieldCodBarras1;
-    private javax.swing.JTextField FieldCodBarras2;
     private javax.swing.JLabel LabelCedulaCliente;
     private javax.swing.JLabel LabelCodBarras;
     private javax.swing.JLabel LabelCodigoDescuento;
@@ -456,6 +612,8 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JLabel LabelImpuestos;
     private javax.swing.JLabel LabelNomCliente;
     private javax.swing.JLabel LabelNumCedula;
+    private javax.swing.JLabel LabelProductosEliminados;
+    private javax.swing.JLabel LabelProductosFacturados;
     private javax.swing.JLabel LabelSubtotal;
     private javax.swing.JLabel LabelTotal;
     private javax.swing.JLabel LabelValueDescuento;
@@ -467,7 +625,9 @@ public class ViewFactura extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMain;
     private javax.swing.JPanel PanelTable;
     private javax.swing.JTable TableProductos;
+    private javax.swing.JTextField TextFieldCedulaCliente;
     private javax.swing.JTextField TextFieldCodigoDescuento;
+    private javax.swing.JTextField TextFieldNombre;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
