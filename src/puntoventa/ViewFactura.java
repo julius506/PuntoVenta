@@ -537,10 +537,9 @@ public class ViewFactura extends javax.swing.JFrame {
         LabelValueDescuento.setText( manager2.getHileraResultado() );
         
         LabelValueSubtotal.setText("");
-        
+        this.Refresh();
     }//GEN-LAST:event_ButtonAgregarActionPerformed
-
-    private void ButtonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefrescarActionPerformed
+    private void Refresh(){
         //actualizo tabla de productos 
         Conexion manager = new Conexion();
         String ProductosFacturados = LabelProductosFacturados.getText();
@@ -590,6 +589,60 @@ public class ViewFactura extends javax.swing.JFrame {
         //calculo total
         double total = subtotal*(1+impuesto/100)*(1- descuento/100 );
         LabelValueTotal.setText( Double.toString(total));
+    
+    
+    }
+    private void ButtonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefrescarActionPerformed
+         this.Refresh();
+//        //actualizo tabla de productos 
+//        Conexion manager = new Conexion();
+//        String ProductosFacturados = LabelProductosFacturados.getText();
+//        String query = "select * from ("+ProductosFacturados+") as A;";
+//        manager.llenarTabla(query, TableProductos);
+//        
+//        //actualizo descuento para el cliente
+//        Conexion manager2 = new Conexion();
+//        String cedulaCliente = TextFieldCedulaCliente.getText();
+//        String queryDescuento = "select descuento from cliente where cedula='"+cedulaCliente+"'";
+//        manager2.consulta(queryDescuento);
+//        String desc = manager2.getHileraResultado();
+//        desc =desc.replaceAll("\\W","");
+//        double descuento = 0.0;
+//        if(desc.equals("")){
+//            LabelValueDescuento.setText( "0" );
+//        }else{
+//            LabelValueDescuento.setText( desc );
+//            descuento = Double.parseDouble(desc);
+//        }
+//        
+//        //recalculo subtotal
+//        int num_rows = (int) TableProductos.getRowCount();
+//        double subtotal = 0.0;
+//        for(int i=0;i<num_rows;i++){
+//            int cantidad= Integer.parseInt( TableProductos.getValueAt(i,2).toString() );
+//            double valor = Double.parseDouble( TableProductos.getValueAt(i,3).toString() );
+//            subtotal = subtotal + cantidad* (int) valor;
+//        }
+//        LabelValueSubtotal.setText( Double.toString(subtotal));
+//        
+//        //calculo impuestos
+//        Double impuesto = Double.parseDouble( LabelValueImpuesto.getText() );
+//        Conexion manager3 = new Conexion();
+//        String queryExonerado = "select exonerado from cliente where cedula='"+cedulaCliente+"'";
+//        manager2.consulta(queryDescuento);
+//        String exo = manager3.getHileraResultado();
+//        desc =exo.replaceAll("\\W","");
+//        
+//        if(desc.contains("t")){
+//            LabelValueImpuesto.setText( "0 (exonerado)" );
+//            impuesto = 0.0;
+//        }else{
+//           
+//        }
+//        
+//        //calculo total
+//        double total = subtotal*(1+impuesto/100)*(1- descuento/100 );
+//        LabelValueTotal.setText( Double.toString(total));
         
     }//GEN-LAST:event_ButtonRefrescarActionPerformed
 
