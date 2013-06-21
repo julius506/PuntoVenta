@@ -247,8 +247,10 @@ public class ViewEmpleados extends javax.swing.JFrame {
         
         Conexion manager = new Conexion();
         String queryEliminar = "delete from empleado where cedula ='"+cedula+"';";
+        String queryEliminarLogin = "delete from login where cedula ='"+cedula+"';";
         
         boolean exito = manager.consulta(queryEliminar);
+        manager.consulta(queryEliminarLogin);
         
         String queryLlenar = "select A.cedula, A.tipo, nombreP, apellido1, apellido2, puesto, sucursal, comision, email, Grado_Aca from (persona natural join fisico) as A, empleado where empleado.cedula=A.cedula;";
         manager.llenarTabla(queryLlenar, TableEmpleado);

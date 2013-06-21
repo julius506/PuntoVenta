@@ -420,12 +420,13 @@ public class ViewAgregarEmpleado extends javax.swing.JFrame {
         boolean exito = manager.consultaInsert(insertNewUser);
         String resultado = manager.getHileraResultado();
         //System.out.println(resultado);
-        if(resultado.equals("exito")){
-            JOptionPane.showMessageDialog(null, "Usuario agregado", "Exito", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "No se pudo agregar empleado nuevo, usuario o contraseña no validos", "Alerta", JOptionPane.ERROR_MESSAGE);
-        }
+//        if(resultado.equals("exito")){
+//            JOptionPane.showMessageDialog(null, "Usuario agregado", "Exito", JOptionPane.INFORMATION_MESSAGE);
+//            this.dispose();
+//        }else{
+//            JOptionPane.showMessageDialog(null, "No se pudo agregar empleado nuevo, usuario o contraseña no validos", "Alerta", JOptionPane.ERROR_MESSAGE);
+//        }
+        this.dispose();
         
         // hay que actualizar la base de datos
         
