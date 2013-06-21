@@ -123,9 +123,9 @@ public class LogIn extends javax.swing.JFrame {
         if(exito) {
             usr = manager.getHileraResultado();
             //System.out.println("El resultado de la consulta es");
-            System.out.println(usr);
+            //System.out.println(usr);
             usr = usr.replaceAll("\\W","");
-            System.out.println(usr);
+            //System.out.println(usr);
             //System.out.println(usr);
             if(usr.contains("Cajero")){
                 new ViewCajeroMenuPrincipal( TextFieldUsername.getText() ).setVisible(true);
